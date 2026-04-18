@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSD-2 Purple Portal — LJU Exam Prep</title>
+  <meta name="description"
+    content="FSD-2 Exam preparation portal for LJ University Semester 4. Practice 235+ questions across 10 units." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-gem">&lt;/&gt;</div>
+      <div>
+        <div class="brand-name">FSD-2 Portal</div>
+        <div class="brand-tag">// study.mode = active</div>
+      </div>
+    </div>
+    <a href="index.html" class="nav-tab active">Home</a>
+    <a href="unit.html?unit=all" class="nav-tab">All Units</a>
+    </nav>
+  </header>
+
+  <div class="page-wrap">
+    <div class="home-container">
+
+      <!-- HERO -->
+      <section class="hero-section">
+        <div class="hero-inner">
+          <!-- Left -->
+          <div class="hero-left">
+            <div class="hero-eyebrow">FSD-2 · SEM-IV · 2026 · LJU</div>
+            <h1 class="hero-h1">
+              <span class="line1">Kill the</span>
+              <span class="line2">Exam.</span>
+            </h1>
+            <p class="hero-sub">235+ questions across 10 units. MCQ, theory, descriptive &amp; code. Filter. Jump.
+              Crush.</p>
+
+            <!-- SINGLE START PRACTICE BUTTON -->
+            <div class="start-practice-wrap">
+              <a href="unit.html?unit=all" class="btn-start-practice" id="startPracticeBtn">
+                <span class="btn-start-icon"><i class="fas fa-bolt"></i></span>
+                <span class="btn-start-text">
+                  <span class="btn-start-main">Start Practice</span>
+                  <span class="btn-start-sub">235+ questions · All 10 units</span>
+                </span>
+                <span class="btn-start-arrow"><i class="fas fa-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <!-- Quick unit picker -->
+            <div class="quick-units-label"><span class="t-comment">// or jump to a unit</span></div>
+            <div class="quick-units-row">
+              <a href="unit.html?unit=1" class="unit-chip">U1</a>
+              <a href="unit.html?unit=2" class="unit-chip">U2</a>
+              <a href="unit.html?unit=3" class="unit-chip">U3</a>
+              <a href="unit.html?unit=4" class="unit-chip">U4</a>
+              <a href="unit.html?unit=5" class="unit-chip">U5</a>
+              <a href="unit.html?unit=6" class="unit-chip">U6</a>
+              <a href="unit.html?unit=7" class="unit-chip">U7</a>
+              <a href="unit.html?unit=8" class="unit-chip">U8</a>
+              <a href="unit.html?unit=9" class="unit-chip">U9</a>
+              <a href="unit.html?unit=10" class="unit-chip">U10</a>
+            </div>
+
+            <!-- Stats -->
+            <div class="stat-row">
+              <div class="stat-pill"><span class="n">235+</span><span class="l">questions</span></div>
+              <div class="stat-pill"><span class="n">10</span><span class="l">units</span></div>
+              <div class="stat-pill"><span class="n">PYQ</span><span class="l">marked</span></div>
+              <div class="stat-pill"><span class="n">4</span><span class="l">types</span></div>
+            </div>
+          </div>
+
+          <!-- Right terminal (hidden on mobile) -->
+          <div class="hero-right">
+            <div class="terminal">
+              <div class="terminal-bar">
+                <span class="t-dot t-dot-r"></span>
+                <span class="t-dot t-dot-y"></span>
+                <span class="t-dot t-dot-g"></span>
+                <span class="t-title">session.js</span>
+              </div>
+              <div class="terminal-body">
+                <div class="t-line"><span class="t-key">const</span> <span style="color:#e2e8f0">session</span> = {
+                </div>
+                <div class="t-line">&nbsp;&nbsp;<span class="t-key">student</span>: <span class="t-str">"Full Stack
+                    Devs. 2"</span>,</div>
+                <div class="t-line">&nbsp;&nbsp;<span class="t-key">semester</span>: <span class="t-num">4</span>,</div>
+                <div class="t-line">&nbsp;&nbsp;<span class="t-key">units</span>: [<span class="t-num">1</span>..<span
+                    class="t-num">10</span>],</div>
+                <div class="t-line">&nbsp;&nbsp;<span class="t-key">questions</span>: <span class="t-num">235</span>,
+                </div>
+                <div class="t-line">&nbsp;&nbsp;<span class="t-key">types</span>: [<span
+                    class="t-str">"mcq"</span>,<span class="t-str">"code"</span>,</div>
+                <div class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                    class="t-str">"theory"</span>,<span class="t-str">"descriptive"</span>],</div>
+                <div class="t-line">};</div>
+                <div class="t-line">&nbsp;</div>
+                <div class="t-line"><span class="t-px">session</span>.<span class="t-key">start</span>() <span
+                    class="t-comment">// 💜 let's go</span></div>
+              </div>
+            </div>
+
+            <!-- Feature pills -->
+            <div class="feature-pills">
+              <div class="feature-pill">
+                <i class="fas fa-crosshairs"></i>
+                <span>Jump to Q.No</span>
+              </div>
+              <div class="feature-pill">
+                <i class="fas fa-filter"></i>
+                <span>Filter Descriptive</span>
+              </div>
+              <div class="feature-pill">
+                <i class="fas fa-star"></i>
+                <span>PYQ Highlight</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-glow"></div>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 🌐 <strong>LJ United Networks</strong> 🚀 &nbsp;·&nbsp; Dixit Patel</div>
+      <div class="footer-socials-wrap">
+        <span class="footer-follow">follow_me →</span>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/dixit.patel_since_2005/?hl=en" target="_blank" class="soc-btn"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://github.com/create2learn7238" target="_blank" class="soc-btn"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/dixit-patel-7718993a1/" target="_blank" class="soc-btn"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919316227238" target="_blank" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

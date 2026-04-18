@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit Viewer — FSD-2 Portal</title>
+  <meta name="description" content="Browse and filter FSD-2 questions by unit, marks, type and previous year."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <a href="index.html" class="brand" aria-label="Go to Home">
+      <div class="brand-gem">&lt;/&gt;</div>
+      <div>
+        <div class="brand-name">FSD-2 Portal</div>
+        <div class="brand-tag">// study.mode = active</div>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE DRAWER NAV -->
+  <div class="nav-drawer" id="navDrawer">
+    <div class="drawer-inner">
+      <div class="drawer-title"><span class="t-comment">// select_unit</span></div>
+      <a href="index.html" class="drawer-link">~ Home</a>
+      <a href="unit.html?unit=all" class="drawer-link" data-unit="all">All Units</a>
+      <div class="drawer-divider"></div>
+      <a href="unit.html?unit=1"  class="drawer-link" data-unit="1">Unit 1 · JSON</a>
+      <a href="unit.html?unit=2"  class="drawer-link" data-unit="2">Unit 2 · Node.js Core</a>
+      <a href="unit.html?unit=3"  class="drawer-link" data-unit="3">Unit 3 · HTTP &amp; Servers</a>
+      <a href="unit.html?unit=4"  class="drawer-link" data-unit="4">Unit 4 · Express.js</a>
+      <a href="unit.html?unit=5"  class="drawer-link" data-unit="5">Unit 5 · Middleware &amp; Cookies</a>
+      <a href="unit.html?unit=6"  class="drawer-link" data-unit="6">Unit 6 · Template Engines</a>
+      <a href="unit.html?unit=7"  class="drawer-link" data-unit="7">Unit 7 · MongoDB</a>
+      <a href="unit.html?unit=8"  class="drawer-link" data-unit="8">Unit 8 · Mongoose</a>
+      <a href="unit.html?unit=9"  class="drawer-link" data-unit="9">Unit 9 · REST APIs</a>
+      <a href="unit.html?unit=10" class="drawer-link" data-unit="10">Unit 10 · Auth &amp; JWT</a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- UNIT SCROLLABLE PILL NAV (below topbar) -->
+  <div class="unit-pill-nav" id="unitPillNav">
+    <a href="unit.html?unit=all" class="unit-pill" data-unit="all">All</a>
+    <a href="unit.html?unit=1"  class="unit-pill" data-unit="1">U1</a>
+    <a href="unit.html?unit=2"  class="unit-pill" data-unit="2">U2</a>
+    <a href="unit.html?unit=3"  class="unit-pill" data-unit="3">U3</a>
+    <a href="unit.html?unit=4"  class="unit-pill" data-unit="4">U4</a>
+    <a href="unit.html?unit=5"  class="unit-pill" data-unit="5">U5</a>
+    <a href="unit.html?unit=6"  class="unit-pill" data-unit="6">U6</a>
+    <a href="unit.html?unit=7"  class="unit-pill" data-unit="7">U7</a>
+    <a href="unit.html?unit=8"  class="unit-pill" data-unit="8">U8</a>
+    <a href="unit.html?unit=9"  class="unit-pill" data-unit="9">U9</a>
+    <a href="unit.html?unit=10" class="unit-pill" data-unit="10">U10</a>
+  </div>
+
+  <div class="page-wrap unit-page-wrap">
+    <div class="unit-container">
+
+      <!-- PAGE HEAD -->
+      <section class="qpage-head">
+        <div class="qpage-code" id="unitCode">// unit_1.js</div>
+        <h1 class="qpage-title" id="unitTitle">Unit 1</h1>
+        <div class="qpage-sub" id="unitDesc">JSON basics, arrays, objects, parsing, stringify.</div>
+      </section>
+
+      <!-- ══ FEATURE TOOLBAR ══ -->
+      <div class="feature-toolbar">
+
+        <!-- JUMP TO Q.NO — Feature 1 -->
+        <div class="jump-panel">
+          <div class="jump-label"><i class="fas fa-crosshairs"></i> Jump to Q.No</div>
+          <div class="jump-row">
+            <input type="number" class="jump-input" id="jumpInput" placeholder="e.g. 42" min="1" aria-label="Question number to jump to"/>
+            <button class="jump-btn" id="jumpBtn"><i class="fas fa-location-arrow"></i> Go</button>
+          </div>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar" id="statsBar">
+          <span class="stats-count"><span id="visibleCount">0</span> shown</span>
+          <span class="stats-dot"></span>
+          <span class="stats-unit" id="statsUnit">Unit 1</span>
+        </div>
+
+      </div>
+
+      <!-- ══ SEARCH / FILTER BAR ══ -->
+      <div class="search-bar-wrap">
+        <div class="search-wrap">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" id="searchInput" placeholder="search questions, keywords, concepts..."/>
+        </div>
+        <div class="filters-row">
+          <select class="filter-select" id="marksFilter">
+            <option value="all">All Marks</option>
+            <option value="0.5">0.5 m</option>
+            <option value="1">1 m</option>
+            <option value="2">2 m</option>
+            <option value="3">3 m</option>
+            <option value="4">4 m</option>
+            <option value="5">5 m</option>
+          </select>
+          <select class="filter-select" id="pyqFilter">
+            <option value="all">All</option>
+            <option value="yes">PYQ ⭐</option>
+            <option value="no">Non-PYQ</option>
+          </select>
+          <!-- FEATURE 2: Filter Descriptive -->
+          <select class="filter-select" id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="mcq">MCQ</option>
+            <option value="programming">Code</option>
+            <option value="theory">Theory</option>
+            <option value="descriptive">📝 Descriptive</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- QUESTION LIST -->
+      <div id="questionList"></div>
+
+      <!-- BACK TO TOP -->
+      <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-glow"></div>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 🌐 <strong>LJ United Networks</strong> 🚀 &nbsp;·&nbsp; Dixit Patel</div>
+      <div class="footer-socials-wrap">
+        <span class="footer-follow">follow_me →</span>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/dixit.patel_since_2005/?hl=en" target="_blank" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/create2learn7238" target="_blank" class="soc-btn"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/dixit-patel-7718993a1/" target="_blank" class="soc-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/919316227238" target="_blank" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
