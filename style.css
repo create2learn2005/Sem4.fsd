@@ -389,11 +389,13 @@ body::after {
 
 /* JUMP PANEL */
 .jump-panel {
-  flex-shrink:0;
-  background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(34,211,238,0.04));
-  border:1px solid rgba(139,92,246,0.25);
-  border-radius:12px; padding:0.75rem 1rem;
-  transition:border-color 0.2s;
+  flex-shrink: 0;
+  width: 100%;  /* 👈 makes it full width */
+  background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(34,211,238,0.04));
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s;
 }
 .jump-panel:focus-within { border-color:var(--purple); }
 .jump-label {

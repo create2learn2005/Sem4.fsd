@@ -103,9 +103,14 @@
 
       <!-- ══ SEARCH / FILTER BAR ══ -->
       <div class="search-bar-wrap">
-        <!-- <div class="search-wrap">
-        </div> -->
+        <div class="search-wrap">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" id="searchInput" placeholder="search questions, keywords, concepts..."/>
+        </div>
         <div class="filters-row">
+          <select class="filter-select" id="marksFilter">
+            <option value="all">All Marks</option>
+          </select>
           <select class="filter-select" id="pyqFilter">
             <option value="all">All</option>
             <option value="yes">PYQ ⭐</option>
@@ -115,8 +120,6 @@
           <select class="filter-select" id="typeFilter">
             <option value="all">All Types</option>
             <option value="mcq">MCQ</option>
-            <option value="programming">Code</option>
-            <option value="theory">Theory</option>
             <option value="descriptive">📝 Descriptive</option>
           </select>
         </div>

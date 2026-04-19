@@ -305,7 +305,7 @@ async function initPage() {
     /* ── Apply Filters ── */
     function applyFilters() {
       const s = (searchInput.value || '').toLowerCase().trim();
-      const m = marksFilter.value;
+      const m = 'all';
       const p = pyqFilter.value;
       const t = typeFilter.value;
 
