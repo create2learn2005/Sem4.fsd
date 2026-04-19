@@ -5621,7 +5621,7 @@
     },
     {
       "id": 445,
-      "unit": 10,
+      "unit": 5,
       "question": "Identify a correct query returning documents having a field surname occurring 6-10 letters only.",
       "answer": "db.student.find({surname:{$regex:/^[A-Za-z]{6,10}$/}})",
       "marks": 1,
