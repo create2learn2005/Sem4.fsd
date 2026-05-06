@@ -9,7 +9,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "In JSON, data items are separated using commas — just like a shopping list, each item is separated before the next one starts.",
-      "options": ["Semicolons", "Colons", "Commas", "Hyphens"]
+      "options": [
+        "Semicolons",
+        "Colons",
+        "Commas",
+        "Hyphens"
+      ]
     },
     {
       "id": 2,
@@ -21,7 +26,12 @@
       "previousYearTag": "LJU2025",
       "type": "mcq",
       "explanation": "In JSON, curly braces {} hold Objects, NOT arrays. Arrays are held by square brackets []. All other statements are correct.",
-      "options": ["2,3", "3,4", "3 only", "5 only"]
+      "options": [
+        "2,3",
+        "3,4",
+        "3 only",
+        "5 only"
+      ]
     },
     {
       "id": 3,
@@ -49,7 +59,12 @@
       "previousYearTag": "LJU2023",
       "type": "mcq",
       "explanation": "JSON.parse(undefined) throws a SyntaxError because 'undefined' is not valid JSON. JSON.parse(false) returns false, JSON.parse(null) returns null, and JSON.parse('0') returns 0 — all valid.",
-      "options": ["JSON.parse(false);", "JSON.parse(null);", "JSON.parse(undefined);", "JSON.parse(\"0\");"]
+      "options": [
+        "JSON.parse(false);",
+        "JSON.parse(null);",
+        "JSON.parse(undefined);",
+        "JSON.parse(\"0\");"
+      ]
     },
     {
       "id": 5,
@@ -60,7 +75,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "JSON supports string, number, object, array, boolean, and null. Functions are NOT a valid JSON data type because JSON is a data-interchange format, not a programming language.",
-      "options": ["a number", "a string", "a function", "null"]
+      "options": [
+        "a number",
+        "a string",
+        "a function",
+        "null"
+      ]
     },
     {
       "id": 6,
@@ -71,7 +91,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "JSON.stringify() converts a JavaScript object or value to a JSON string. For example: JSON.stringify({name:'John'}) returns '{\"name\":\"John\"}'.",
-      "options": ["JSON.parse()", "JSON.stringify()", "JSON_Parse()", "JSON_Stringify()"]
+      "options": [
+        "JSON.parse()",
+        "JSON.stringify()",
+        "JSON_Parse()",
+        "JSON_Stringify()"
+      ]
     },
     {
       "id": 7,
@@ -82,7 +107,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "JSON.parse() parses a JSON string and converts it into a JavaScript object. For example: JSON.parse('{\"name\":\"John\"}') returns {name: 'John'}.",
-      "options": ["JSON.parse()", "JSON.stringify()", "JSON_Parse()", "JSON_Stringify()"]
+      "options": [
+        "JSON.parse()",
+        "JSON.stringify()",
+        "JSON_Parse()",
+        "JSON_Stringify()"
+      ]
     },
     {
       "id": 8,
@@ -93,7 +123,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "JSON files use the .json file extension and the official MIME type is application/json. This tells browsers and servers how to handle the file.",
-      "options": [".json & application/json", ".js & application/json", ".json & text/js", ".js & text/json"]
+      "options": [
+        ".json & application/json",
+        ".js & application/json",
+        ".json & text/js",
+        ".js & text/json"
+      ]
     },
     {
       "id": 9,
@@ -104,7 +139,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The variable name is 'obj', not 'employee'. 'employee' is just a key inside the object. Accessing an undefined variable 'employee' directly causes a ReferenceError.",
-      "options": ["{ \"name\" : \"John\", \"age\" : 30, \"city\" : \"New York\" }", "\"employee\" : { \"name\" : \"John\", \"age\" : 30, \"city\" : \"New York\" }", "Error", "Undefined"]
+      "options": [
+        "{ \"name\" : \"John\", \"age\" : 30, \"city\" : \"New York\" }",
+        "\"employee\" : { \"name\" : \"John\", \"age\" : 30, \"city\" : \"New York\" }",
+        "Error",
+        "Undefined"
+      ]
     },
     {
       "id": 10,
@@ -116,7 +156,12 @@
       "previousYearTag": "LJU2023",
       "type": "mcq",
       "explanation": "obj.name is undefined because 'name' is not a direct property of obj. It is nested inside obj.employee. The correct access would be obj.employee.name which returns 'John'.",
-      "options": ["{ \"name\" : \"John\", \"age\" : 30, \"city\" : \"New York\" }", "undefined", "Syntax error", "John"]
+      "options": [
+        "{ \"name\" : \"John\", \"age\" : 30, \"city\" : \"New York\" }",
+        "undefined",
+        "Syntax error",
+        "John"
+      ]
     },
     {
       "id": 11,
@@ -160,7 +205,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Arrays in JavaScript are zero-indexed. hobbies[0] = 'reading', hobbies[1] = 'running', hobbies[2] = 'painting'. So to access 'running', we use index 1.",
-      "options": ["jsonObject.hobbies[0]", "jsonObject.hobbies[1]", "jsonObject.hobbies[2]", "jsonObject.hobbies{\"running\"}"]
+      "options": [
+        "jsonObject.hobbies[0]",
+        "jsonObject.hobbies[1]",
+        "jsonObject.hobbies[2]",
+        "jsonObject.hobbies{\"running\"}"
+      ]
     },
     {
       "id": 14,
@@ -187,7 +237,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "In JavaScript, object properties can be accessed using bracket notation: jsonObject[\"age\"] or dot notation: jsonObject.age. Methods like .set{}, .getValue(), and .value() do not exist for plain objects.",
-      "options": ["jsonObject.set{age}", "jsonObject.getValue(\"age\")", "jsonObject[\"age\"]", "jsonObject.value(\"age\")"]
+      "options": [
+        "jsonObject.set{age}",
+        "jsonObject.getValue(\"age\")",
+        "jsonObject[\"age\"]",
+        "jsonObject.value(\"age\")"
+      ]
     },
     {
       "id": 16,
@@ -230,7 +285,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "JSON.parse() accepts a second 'reviver' function that transforms values. When the value is 'apple', the reviver returns 'orange'. So the final object has fruit: 'orange'.",
-      "options": ["{ fruit: 'apple' }", "{ fruit: 'apple,orange' }", "{ fruit: ['orange', 'apple'] }", "{ fruit: 'orange' }"]
+      "options": [
+        "{ fruit: 'apple' }",
+        "{ fruit: 'apple,orange' }",
+        "{ fruit: ['orange', 'apple'] }",
+        "{ fruit: 'orange' }"
+      ]
     },
     {
       "id": 19,
@@ -241,7 +301,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "After JSON.parse(), obj.myobj is the nested object {name:'nested', age:20}. Accessing .age on it gives 20.",
-      "options": ["20", "30", "null", "undefined"]
+      "options": [
+        "20",
+        "30",
+        "null",
+        "undefined"
+      ]
     },
     {
       "id": 20,
@@ -252,7 +317,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "profiledata is a STRING, not an object. Accessing .age on a string returns undefined. To access age, you must use obj.age (the parsed object), not profiledata.age.",
-      "options": ["20", "undefined", "30", "null"]
+      "options": [
+        "20",
+        "undefined",
+        "30",
+        "null"
+      ]
     },
     {
       "id": 21,
@@ -263,7 +333,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "obj.intrest is an array: ['travel', 'science', {movie:true}]. Index 2 is the object {movie:true}. Accessing .movie gives true.",
-      "options": ["false", "undefined", "true", "Error"]
+      "options": [
+        "false",
+        "undefined",
+        "true",
+        "Error"
+      ]
     },
     {
       "id": 22,
@@ -274,7 +349,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "obj.intrest is ['travel', 'science', {movie:true}]. Index 0 is 'travel'.",
-      "options": ["science", "movie", "null", "travel"]
+      "options": [
+        "science",
+        "movie",
+        "null",
+        "travel"
+      ]
     },
     {
       "id": 23,
@@ -285,7 +365,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "To update an object property, use assignment (=). person[\"age\"] = 30 or person.age = 30 are both valid. Using == is a comparison, not assignment. person(age) = 30 is invalid syntax.",
-      "options": ["person.age == 30;", "person[\"age\"] = 30", "person(age) = 30", "update person.age = 30"]
+      "options": [
+        "person.age == 30;",
+        "person[\"age\"] = 30",
+        "person(age) = 30",
+        "update person.age = 30"
+      ]
     },
     {
       "id": 24,
@@ -427,7 +512,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "In Node.js, require() is used to import/include modules. For example: var fs = require('fs'). This is the CommonJS module system used in Node.js.",
-      "options": ["include()", "require()", "attach()", "None of the above"]
+      "options": [
+        "include()",
+        "require()",
+        "attach()",
+        "None of the above"
+      ]
     },
     {
       "id": 38,
@@ -470,7 +560,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "path.basename() returns the last portion (filename with extension) of a path. For 'D:/hello/abc/1.doc', the basename is '1.doc'.",
-      "options": ["D:/hello/abc", "D:/hello/abc/1.doc", "1.doc", "doc"]
+      "options": [
+        "D:/hello/abc",
+        "D:/hello/abc/1.doc",
+        "1.doc",
+        "doc"
+      ]
     },
     {
       "id": 41,
@@ -497,7 +592,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "fs.unlink() is used to delete/remove a file in Node.js. fs.removeFile(), fs.delete(), and fs.unlinkFile() are not valid fs module methods.",
-      "options": ["fs.removeFile()", "fs.unlink()", "fs.delete()", "fs.unlinkFile()"]
+      "options": [
+        "fs.removeFile()",
+        "fs.unlink()",
+        "fs.delete()",
+        "fs.unlinkFile()"
+      ]
     },
     {
       "id": 43,
@@ -519,7 +619,7 @@
       "id": 44,
       "unit": 2,
       "question": "Identify the correct code which produces the following output:\nD:/ABC/DEMO\n.txt\nabc.txt",
-      "answer": "var pm=require(\"path\");\npath1=pm.dirname(\"D:/ABC/DEMO/abc.txt\");\nconsole.log(path1);\npath2=pm.extname(\"D:/ABC/DEMO/abc.txt\");\nconsole.log(path2);\npath3=pm.basename(\"D:/ABC/DEMO/abc.txt\");\nconsole.log(path3);",
+      "answer": "var pm=require(\"path\"); path1=pm.dirname(...); path2=pm.extname(...); path3=pm.basename(...);",
       "marks": 1,
       "previousYear": false,
       "type": "mcq",
@@ -535,7 +635,7 @@
       "id": 45,
       "unit": 2,
       "question": "Identify the equivalent code of given code snippet which produces same Output.\nvar pm=require(\"path\");\nvar path=\"D:/abc/def/jkl/some.txt\";\nvar ans=pm.basename(path);\nvar sep=ans.split(\".\");\nconsole.log(\"Filename=\"+sep[0]);\nconsole.log(\"Extension=\"+\".\"+sep[1]);",
-      "answer": "var pm=require(\"path\");\nvar path=\"D:/abc/def/jkl/some.txt\";\nvar ans=pm.parse(path);\nconsole.log(\"Filename=\" +ans.name);\nconsole.log(\"Extension=\" +ans.ext);",
+      "answer": "var ans=pm.parse(path); console.log(\"Filename=\" +ans.name); console.log(\"Extension=\" +ans.ext);",
       "marks": 1,
       "previousYear": true,
       "previousYearTag": "LJU2023, LJU2025",
@@ -552,7 +652,7 @@
       "id": 46,
       "unit": 2,
       "question": "Which of the following code deletes only contents of a 'example.txt' file and keeps file as it is, if something is already written in it. Deletion should result without any error.",
-      "answer": "var fs=require(\"fs\");\nfs.writeFile(\"example.txt\",\"\" , (err)=>{\nconsole.log(err);\n});",
+      "answer": "var fs=require(\"fs\"); fs.writeFile(\"example.txt\",\"\" , (err)=>{console.log(err);});",
       "marks": 1,
       "previousYear": true,
       "previousYearTag": "LJU2023",
@@ -574,7 +674,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The file is 'abc.text' (not 'abc.txt'). pm.extname() returns '.text'. The condition checks for '.txt' which is different from '.text', so the else block executes: 'Not a text Document'.",
-      "options": ["Text Document", "Not a text Document", "Error:No such method named extname() exists", "Error : No such method named require exists"]
+      "options": [
+        "Text Document",
+        "Not a text Document",
+        "Error:No such method named extname() exists",
+        "Error : No such method named require exists"
+      ]
     },
     {
       "id": 48,
@@ -594,7 +699,7 @@
     },
     {
       "id": 49,
-      "unit": 1,
+      "unit": 2,
       "question": "Which of the following options demonstrates the correct usage of the fs.readFile method in Node.js to read a file asynchronously?",
       "answer": "fs.readFile('file.txt', 'utf-8', (err, data) => { console.log(data) });",
       "marks": 1,
@@ -612,7 +717,7 @@
       "id": 50,
       "unit": 2,
       "question": "What will be the output of following code? In 'Hello.txt' file 'hello students' is written.\nvar ps=require(\"fs\");\nvar data=ps.readFileSync(\"Hello.txt\");\nconsole.log(data);\nps.readFile(\"Hello.txt\",function(err,data){\n if(err){return console.error(err); }\n console.log(data.toString());});\nconsole.log(\"Program ended\");",
-      "answer": "<Buffer 68 65 6c 6c 6f 20 73 74 75 64 65 6e 74 73>\nProgram ended\nhello students",
+      "answer": "<Buffer ...>\nProgram ended\nhello students",
       "marks": 1,
       "previousYear": false,
       "type": "mcq",
@@ -633,7 +738,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "path.basename() returns the last portion (filename) of a file path. path.dirname() returns the directory, path.extname() returns the extension, path.ext() does not exist.",
-      "options": ["path.ext()", "path.basename()", "path.dirname()", "path.extname()"]
+      "options": [
+        "path.ext()",
+        "path.basename()",
+        "path.dirname()",
+        "path.extname()"
+      ]
     },
     {
       "id": 52,
@@ -644,7 +754,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "source.txt has 'Hello'. readFileSync returns the string 'Hello'. JSON.stringify('Hello') adds quotes: '\"Hello\"'. appendFileSync adds '\"Hello\"' to source1.txt which had 'World', resulting in 'World\"Hello\"'.",
-      "options": ["Hello World", "Hello World", "World\"Hello\"", "Hello World"]
+      "options": [
+        "Hello World",
+        "Hello World",
+        "World\"Hello\"",
+        "Hello World"
+      ]
     },
     {
       "id": 53,
@@ -655,7 +770,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "path.basename(path, ext) returns the filename and optionally removes the specified extension. Providing '.html' as the second argument removes it, returning just 'index' (not 'index.html').",
-      "options": ["index", "index.html", ".html", "home"]
+      "options": [
+        "index",
+        "index.html",
+        ".html",
+        "home"
+      ]
     },
     {
       "id": 54,
@@ -666,7 +786,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "eventEmitter.on() registers 'myEventHandler' for the 'scream' event. eventEmitter.emit('scream') fires the event once, causing 'I hear a scream!' to print exactly once.",
-      "options": ["I hear a scream!!!", "I hear a scream!", "I didn't hear a scream!", "I hear a scream!I hear a scream!"]
+      "options": [
+        "I hear a scream!!!",
+        "I hear a scream!",
+        "I didn't hear a scream!",
+        "I hear a scream!I hear a scream!"
+      ]
     },
     {
       "id": 55,
@@ -677,7 +802,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The emit() method fires/triggers an event. .on() is used to listen/bind an event. fire(), calc(), and listner() are not valid EventEmitter methods.",
-      "options": ["fire()", "calc()", "listner()", "emit()"]
+      "options": [
+        "fire()",
+        "calc()",
+        "listner()",
+        "emit()"
+      ]
     },
     {
       "id": 56,
@@ -688,7 +818,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The .on() method registers/binds an event listener to an event. emit() fires the event, event() and listeners() are not the correct binding methods.",
-      "options": ["emit()", "on()", "event()", "listeners()"]
+      "options": [
+        "emit()",
+        "on()",
+        "event()",
+        "listeners()"
+      ]
     },
     {
       "id": 57,
@@ -699,7 +834,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "EventEmitter is the class from the 'events' module used to create custom events. You instantiate it with: new events.EventEmitter(). Events and NodeEvent are not valid class names.",
-      "options": ["Events", "NodeEvent", "Emit", "EventEmitter"]
+      "options": [
+        "Events",
+        "NodeEvent",
+        "Emit",
+        "EventEmitter"
+      ]
     },
     {
       "id": 58,
@@ -710,7 +850,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Two listeners (listener and listener2) are registered for the 'hii' event using .on(). listenerCount('hii') counts how many listeners are registered, which is 2. The listeners are not fired (no emit()), so 'Thanks' and 'Bye' are NOT printed.",
-      "options": ["1", "2\nThanks\nBye", "Thanks\nBye\n2", "2"]
+      "options": [
+        "1",
+        "2\nThanks\nBye",
+        "Thanks\nBye\n2",
+        "2"
+      ]
     },
     {
       "id": 59,
@@ -721,7 +866,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "eventEmitter.listenerCount(eventName) returns the number of listeners registered for the specified event. getListenersCount(), countListener(), and CountListen() are not valid methods.",
-      "options": ["getListenersCount()", "countListener()", "CountListen()", "listenerCount()"]
+      "options": [
+        "getListenersCount()",
+        "countListener()",
+        "CountListen()",
+        "listenerCount()"
+      ]
     },
     {
       "id": 60,
@@ -764,7 +914,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The 'fs' (File System) module provides methods for reading, writing, deleting, and managing files. 'path' handles file paths, 'http' for web servers, and 'events' for event handling.",
-      "options": ["path", "http", "fs", "events"]
+      "options": [
+        "path",
+        "http",
+        "fs",
+        "events"
+      ]
     },
     {
       "id": 63,
@@ -775,7 +930,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "npm install package-name downloads and installs a package in the node_modules folder of the current project. npm start runs the project, npm update updates packages, npm run runs scripts.",
-      "options": ["npm start", "npm install package-name", "npm update", "npm run"]
+      "options": [
+        "npm start",
+        "npm install package-name",
+        "npm update",
+        "npm run"
+      ]
     },
     {
       "id": 64,
@@ -802,7 +962,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "path.dirname() returns the directory portion of a path. For 'D:/abc/file.txt', dirname returns 'D:/abc'. basename() returns filename, extname() returns extension, parse() returns an object with all parts.",
-      "options": ["path.basename()", "path.dirname()", "path.extname()", "path.parse()"]
+      "options": [
+        "path.basename()",
+        "path.dirname()",
+        "path.extname()",
+        "path.parse()"
+      ]
     },
     {
       "id": 66,
@@ -1046,7 +1211,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "http.createServer() is the method from the 'http' core module used to create an HTTP server. http.newServer() does not exist. The method requires a callback with (req, res) parameters.",
-      "options": ["http.createServer()", "http.createServer", "http.newServer()", "http.newServer"]
+      "options": [
+        "http.createServer()",
+        "http.createServer",
+        "http.newServer()",
+        "http.newServer"
+      ]
     },
     {
       "id": 90,
@@ -1057,7 +1227,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "res.end() accepts a string. JSON.stringify(obj) converts object to string, obj.toString() gives [object Object], and ''+obj also gives [object Object]. All three are valid strings and won't cause an error in res.end().",
-      "options": ["JSON.stringify(obj)", "obj.toString()", "\"\"+obj", "All of the above"]
+      "options": [
+        "JSON.stringify(obj)",
+        "obj.toString()",
+        "\"\"+obj",
+        "All of the above"
+      ]
     },
     {
       "id": 91,
@@ -1068,7 +1243,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The http module is a Core module of Node.js — it comes built-in and doesn't need to be installed via npm. Other core modules include fs, path, events, url, os.",
-      "options": ["Core", "Local", "Global", "Third party"]
+      "options": [
+        "Core",
+        "Local",
+        "Global",
+        "Third party"
+      ]
     },
     {
       "id": 92,
@@ -1095,7 +1275,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The url module in Node.js parses a URL string into its components: protocol, host, pathname, query, hash, etc. path module handles file paths, os module handles OS info, http module handles HTTP.",
-      "options": ["Path module", "url module", "OS module", "HTTP module"]
+      "options": [
+        "Path module",
+        "url module",
+        "OS module",
+        "HTTP module"
+      ]
     },
     {
       "id": 94,
@@ -1106,7 +1291,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Content-Type is 'text/plain', not 'text/html'. With plain text content type, the browser displays the raw string including HTML tags literally. '<b>Hello World!</b>' is shown as-is, not rendered bold.",
-      "options": ["Hello World!", "will print Hello World! in bold", "<b>Hello World!</b>", "<B>Hello World!</B>"]
+      "options": [
+        "Hello World!",
+        "will print Hello World! in bold",
+        "<b>Hello World!</b>",
+        "<B>Hello World!</B>"
+      ]
     },
     {
       "id": 95,
@@ -1117,7 +1307,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "url.parse() returns an object. The pathname property contains only the path part of the URL, which is '/default.htm' (without the query string). The full URL with query is q.path.",
-      "options": ["http://localhost:8080/default.htm", "/default.htm", "/default.htm?year=2017&month=february", "undefined"]
+      "options": [
+        "http://localhost:8080/default.htm",
+        "/default.htm",
+        "/default.htm?year=2017&month=february",
+        "undefined"
+      ]
     },
     {
       "id": 96,
@@ -1146,7 +1341,12 @@
       "previousYearTag": "LJU2023",
       "type": "mcq",
       "explanation": "url.parse(addr, false) parses the URL but does NOT parse the query string. q.query is a raw string 'name=karan&age=21', not an object. Accessing .name on a string returns undefined.",
-      "options": ["karan", "null", "undefined", "false"]
+      "options": [
+        "karan",
+        "null",
+        "undefined",
+        "false"
+      ]
     },
     {
       "id": 98,
@@ -1157,7 +1357,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "url.parse(url, false) or url.parse(url) keeps the query string as a raw string. url.parse(url, true) parses query string into an object. url.format() formats a URL object into a string.",
-      "options": ["url.parse(url, false)", "url.parse(url, true)", "url.format(url)", "url.resolve(base, relative)"]
+      "options": [
+        "url.parse(url, false)",
+        "url.parse(url, true)",
+        "url.format(url)",
+        "url.resolve(base, relative)"
+      ]
     },
     {
       "id": 99,
@@ -1168,7 +1373,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The 'request' (req) object in Node.js HTTP server contains details about the incoming client request: URL, method, headers, body, etc. The 'response' (res) object is for sending back data.",
-      "options": ["response", "request", "server", "client"]
+      "options": [
+        "response",
+        "request",
+        "server",
+        "client"
+      ]
     },
     {
       "id": 100,
@@ -1188,14 +1398,19 @@
     },
     {
       "id": 101,
-      "unit": 1,
+      "unit": 3,
       "question": "Which property of the request object is commonly used for basic routing in a Node.js HTTP server?",
       "answer": "req.url",
       "marks": 0.5,
       "previousYear": false,
       "type": "mcq",
       "explanation": "req.url contains the URL path of the incoming request (e.g., '/', '/about'). It is used in if-else conditions for routing. req.method gives the HTTP method (GET/POST).",
-      "options": ["req.method", "req.headers", "req.url", "req.body"]
+      "options": [
+        "req.method",
+        "req.headers",
+        "req.url",
+        "req.body"
+      ]
     },
     {
       "id": 102,
@@ -1206,7 +1421,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Basic routing checks req.url using if...else conditions to determine which response to send. For example: if(req.url === '/') { send home page } else if(req.url === '/about') { send about page }.",
-      "options": ["if...else statement", "for loop", "try...catch block", "setInterval() function"]
+      "options": [
+        "if...else statement",
+        "for loop",
+        "try...catch block",
+        "setInterval() function"
+      ]
     },
     {
       "id": 103,
@@ -1394,7 +1614,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "In Express.js, route parameters (defined with :paramName) are captured and stored in the req.params object. For example, for route '/user/:id', req.params.id holds the value.",
-      "options": ["req.data", "app.locals", "req.params", "All of the above"]
+      "options": [
+        "req.data",
+        "app.locals",
+        "req.params",
+        "All of the above"
+      ]
     },
     {
       "id": 121,
@@ -1405,7 +1630,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Express route handlers receive three arguments: req (request object), res (response object), and next (function to pass control to the next middleware). All three are available.",
-      "options": ["req - the request object", "res - the response object", "next", "All of the above"]
+      "options": [
+        "req - the request object",
+        "res - the response object",
+        "next",
+        "All of the above"
+      ]
     },
     {
       "id": 122,
@@ -1416,7 +1646,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Middleware in Express is a function with three parameters: req, res, and next. The next parameter differentiates middleware from regular route handlers. Calling next() passes control to the next middleware.",
-      "options": ["function(req){ }", "method(req){ }", "function(req,res,next){ }", "method(req,res,next){ }"]
+      "options": [
+        "function(req){ }",
+        "method(req){ }",
+        "function(req,res,next){ }",
+        "method(req,res,next){ }"
+      ]
     },
     {
       "id": 123,
@@ -1427,7 +1662,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "app.get(route, callback) in Express registers a route handler for GET requests. 'app' is the Express application object. get() and js.get() are not valid.",
-      "options": ["app.get(route, callback)", "get(route, callback)", "js.get(route, callback)", "fun.get(route, callback)"]
+      "options": [
+        "app.get(route, callback)",
+        "get(route, callback)",
+        "js.get(route, callback)",
+        "fun.get(route, callback)"
+      ]
     },
     {
       "id": 124,
@@ -1438,7 +1678,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "GET requests send data as query parameters in the URL (headers/URL), which has a size limit. POST sends data in the request body, supporting larger amounts. GET is visible in the URL.",
-      "options": ["GET", "POST", "PUT", "DELETE"]
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
     },
     {
       "id": 125,
@@ -1449,7 +1694,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "POST requests include data in the request body, which has no size limit. This makes POST suitable for large data like form submissions, file uploads, and JSON payloads.",
-      "options": ["GET", "POST", "PUT", "DELETE"]
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
     },
     {
       "id": 126,
@@ -1460,7 +1710,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Middleware functions in Express have access to req, res, and next objects. They can modify the request/response, end the cycle, or call next() to pass control to the next middleware.",
-      "options": ["Data binding", "Routing", "Middleware", "Forms"]
+      "options": [
+        "Data binding",
+        "Routing",
+        "Middleware",
+        "Forms"
+      ]
     },
     {
       "id": 127,
@@ -1471,7 +1726,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "app.listen(port, callback) starts the Express server and makes it listen for incoming connections on the specified port. The callback is called when the server starts successfully.",
-      "options": ["To start the application server", "To stop the application server", "To restart the application server", "To connect to a database"]
+      "options": [
+        "To start the application server",
+        "To stop the application server",
+        "To restart the application server",
+        "To connect to a database"
+      ]
     },
     {
       "id": 128,
@@ -1482,7 +1742,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The req (request) object represents the incoming HTTP request and contains properties for query string, parameters, body, HTTP headers, cookies, etc.",
-      "options": ["To represent the HTTP request", "To represent the HTTP response", "To store session data", "To store user authentication data"]
+      "options": [
+        "To represent the HTTP request",
+        "To represent the HTTP response",
+        "To store session data",
+        "To store user authentication data"
+      ]
     },
     {
       "id": 129,
@@ -1493,7 +1758,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "The res (response) object represents the HTTP response that an Express app sends when it gets an HTTP request. It has methods like res.send(), res.json(), res.render(), res.redirect().",
-      "options": ["To represent the HTTP request", "To represent the HTTP response", "To store session data", "To store user authentication data"]
+      "options": [
+        "To represent the HTTP request",
+        "To represent the HTTP response",
+        "To store session data",
+        "To store user authentication data"
+      ]
     },
     {
       "id": 130,
@@ -1504,11 +1774,16 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "res.set() (or res.setHeader()) is used to set response headers including Content-Type. For example: res.set('content-type', 'text/html'). app.set() sets application-level settings.",
-      "options": ["app.set()", "expr.set()", "res.set()", "app.use()"]
+      "options": [
+        "app.set()",
+        "expr.set()",
+        "res.set()",
+        "app.use()"
+      ]
     },
     {
       "id": 131,
-      "unit": 1,
+      "unit": 4,
       "question": "Identify the valid signature of app.get() method. req, res and next are the objects of request, response and middleware respectively.",
       "answer": "app.get(\"/\",function(req,res,next){});",
       "marks": 1,
@@ -1547,7 +1822,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "req.params contains properties mapped to named route parameters. For route '/users/:id', accessing req.params.id gives the value in the URL. req.query is for query strings.",
-      "options": ["req.data", "app.locals", "req.params", "res.data"]
+      "options": [
+        "req.data",
+        "app.locals",
+        "req.params",
+        "res.data"
+      ]
     },
     {
       "id": 134,
@@ -1574,7 +1854,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Even though content-type is application/json, res.send() can send any string. The browser will display '<h1>xyz</h1>' as plain text (not rendered as HTML) because the content-type is JSON. But the string value is <h1>xyz</h1>.",
-      "options": ["xyz with <h1> effect", "Error as content inside send() is not a JSON object", "{ uname: \"xyz\"}", "<h1>xyz</h1>"]
+      "options": [
+        "xyz with <h1> effect",
+        "Error as content inside send() is not a JSON object",
+        "{ uname: \"xyz\"}",
+        "<h1>xyz</h1>"
+      ]
     },
     {
       "id": 136,
@@ -1601,7 +1886,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "req.params is an object containing properties mapped to named route parameters (:paramName). For route '/product/:id', req.params.id contains the value passed in the URL.",
-      "options": ["To store HTTP request cookies", "To store HTTP request headers", "To store HTTP request body", "To store HTTP request parameters"]
+      "options": [
+        "To store HTTP request cookies",
+        "To store HTTP request headers",
+        "To store HTTP request body",
+        "To store HTTP request parameters"
+      ]
     },
     {
       "id": 138,
@@ -1645,7 +1935,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "res.write('Hello') sends a chunk but res.json() then tries to set Content-Type: application/json and write more. This conflicts with the already-started response. Similar to the previous question, a 'Cannot set headers' error occurs.",
-      "options": ["Hello", "Hello world!", "Nothing gets print (Blank page)", "Hello 2"]
+      "options": [
+        "Hello",
+        "Hello world!",
+        "Nothing gets print (Blank page)",
+        "Hello 2"
+      ]
     },
     {
       "id": 141,
@@ -1917,7 +2212,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "GET is the standard HTTP method for reading/retrieving data from a server without modifying it.",
-      "options": ["GET", "PUT", "POST", "DELETE"]
+      "options": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE"
+      ]
     },
     {
       "id": 166,
@@ -1928,7 +2228,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "cookie-parser is the npm middleware package used in Express to parse Cookie headers and populate req.cookies.",
-      "options": ["cookie", "cookies", "cookie-parser", "None of the above"]
+      "options": [
+        "cookie",
+        "cookies",
+        "cookie-parser",
+        "None of the above"
+      ]
     },
     {
       "id": 167,
@@ -2051,7 +2356,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Cookies are small data pieces stored by the browser, sent by the server via Set-Cookie headers. They are used for sessions, preferences, and tracking.",
-      "options": ["Session", "Cookies", "Forms", "parameters"]
+      "options": [
+        "Session",
+        "Cookies",
+        "Forms",
+        "parameters"
+      ]
     },
     {
       "id": 175,
@@ -2126,7 +2436,12 @@
       "previousYear": true,
       "type": "mcq",
       "explanation": "Route parameters in Express are prefixed with a colon (:). /users/:id means 'id' is a dynamic segment accessible via req.params.id.",
-      "options": ["/users", "/users/:id", "/users/send", "/users/delete"]
+      "options": [
+        "/users",
+        "/users/:id",
+        "/users/send",
+        "/users/delete"
+      ]
     },
     {
       "id": 180,
@@ -2153,7 +2468,12 @@
       "previousYear": true,
       "type": "mcq",
       "explanation": "req.cookies.get('cookieName') or simply req.cookies['cookieName'] or req.cookies.cookieName — the get() method is used to read the value.",
-      "options": ["set()", "get()", "read()", "cp()"]
+      "options": [
+        "set()",
+        "get()",
+        "read()",
+        "cp()"
+      ]
     },
     {
       "id": 182,
@@ -2164,7 +2484,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "express.static() is a built-in Express middleware that serves static assets directly from a specified directory.",
-      "options": ["express.static()", "express.json()", "express.router()", "app.listen()"]
+      "options": [
+        "express.static()",
+        "express.json()",
+        "express.router()",
+        "app.listen()"
+      ]
     },
     {
       "id": 183,
@@ -2191,7 +2516,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "express-session is the standard npm package for session management in Express. It stores session data on the server and sends a session ID cookie to the client.",
-      "options": ["fs", "express-session", "path", "url"]
+      "options": [
+        "fs",
+        "express-session",
+        "path",
+        "url"
+      ]
     },
     {
       "id": 185,
@@ -2234,7 +2564,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "After installing the 'cors' npm package, app.use(cors()) enables Cross-Origin Resource Sharing for all routes.",
-      "options": ["app.cors();", "express.cors();", "app.enable(cors);", "app.use(cors());"]
+      "options": [
+        "app.cors();",
+        "express.cors();",
+        "app.enable(cors);",
+        "app.use(cors());"
+      ]
     },
     {
       "id": 188,
@@ -2341,7 +2676,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Route parameters defined with : are available in req.params object. For /user/:id, the value is in req.params.id.",
-      "options": ["req.body.id", "req.query.id", "req.params.id", "req.header.id"]
+      "options": [
+        "req.body.id",
+        "req.query.id",
+        "req.params.id",
+        "req.header.id"
+      ]
     },
     {
       "id": 195,
@@ -2498,7 +2838,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "POST is used to send data including files to the server. It supports multipart/form-data encoding which is required for file uploads.",
-      "options": ["GET", "PUT", "POST", "DELETE"]
+      "options": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE"
+      ]
     },
     {
       "id": 210,
@@ -2557,7 +2902,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Multer is the standard Express.js middleware for handling multipart/form-data, which is used for file uploads.",
-      "options": ["body-parser", "multer", "express-fileupload", "connect-multiparty"]
+      "options": [
+        "body-parser",
+        "multer",
+        "express-fileupload",
+        "connect-multiparty"
+      ]
     },
     {
       "id": 214,
@@ -2568,7 +2918,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Multer emits the 'upload' event when a file upload completes successfully.",
-      "options": ["'upload'", "'file'", "'complete'", "'finish'"]
+      "options": [
+        "'upload'",
+        "'file'",
+        "'complete'",
+        "'finish'"
+      ]
     },
     {
       "id": 215,
@@ -2579,7 +2934,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "multer.diskStorage() configures where and how uploaded files are stored on disk, including destination folder and filename.",
-      "options": ["multer.disk()", "multer.diskStorage()", "multer.keepStorage()", "path.keepStorage()"]
+      "options": [
+        "multer.disk()",
+        "multer.diskStorage()",
+        "multer.keepStorage()",
+        "path.keepStorage()"
+      ]
     },
     {
       "id": 216,
@@ -2606,7 +2966,12 @@
       "previousYear": true,
       "type": "mcq",
       "explanation": "The HTML 'accept' attribute on <input type='file'> restricts what file types are shown in the file picker dialog. E.g., accept='image/*' shows only images.",
-      "options": ["type", "method", "filter", "accept"]
+      "options": [
+        "type",
+        "method",
+        "filter",
+        "accept"
+      ]
     },
     {
       "id": 218,
@@ -2617,7 +2982,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Nodemailer is the most popular npm module for sending emails from Node.js/Express.js applications using SMTP or other transports.",
-      "options": ["Nodemailer", "Express-mailer", "NodeMail", "Express-sendmail"]
+      "options": [
+        "Nodemailer",
+        "Express-mailer",
+        "NodeMail",
+        "Express-sendmail"
+      ]
     },
     {
       "id": 219,
@@ -2660,7 +3030,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "After creating a transporter with nodemailer.createTransport(), use transporter.sendMail(mailOptions, callback) to send the email.",
-      "options": ["trans.createMail()", "trans.sendEmail()", "trans.composeEmail()", "trans.sendMail()"]
+      "options": [
+        "trans.createMail()",
+        "trans.sendEmail()",
+        "trans.composeEmail()",
+        "trans.sendMail()"
+      ]
     },
     {
       "id": 222,
@@ -2671,7 +3046,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "EJS (Embedded JavaScript) is a templating engine that lets you embed JavaScript directly within HTML using <% %> and <%= %> tags.",
-      "options": ["MongoDB", "Express.js", "EJS", "Multer"]
+      "options": [
+        "MongoDB",
+        "Express.js",
+        "EJS",
+        "Multer"
+      ]
     },
     {
       "id": 223,
@@ -2682,7 +3062,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "res.render('templateName', {data}) renders an EJS file from the 'views' folder and sends the generated HTML to the client.",
-      "options": ["res.send()", "res.render()", "app.use()", "res.json()"]
+      "options": [
+        "res.send()",
+        "res.render()",
+        "app.use()",
+        "res.json()"
+      ]
     },
     {
       "id": 224,
@@ -2693,7 +3078,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "<% %> executes JavaScript code without outputting anything (e.g., loops, conditionals). <%= %> outputs the value to the page.",
-      "options": ["<%- %>", "<% %>", "<script></script>", "<%= %>"]
+      "options": [
+        "<%- %>",
+        "<% %>",
+        "<script></script>",
+        "<%= %>"
+      ]
     },
     {
       "id": 225,
@@ -3008,7 +3398,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Create React App starts the development server on port 3000 by default. Vite uses port 5173 by default.",
-      "options": ["8080", "3000", "3030", "3080"]
+      "options": [
+        "8080",
+        "3000",
+        "3030",
+        "3080"
+      ]
     },
     {
       "id": 251,
@@ -3019,7 +3414,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Props (Properties) are inputs passed to React components from parent components. They are read-only and flow down the component tree.",
-      "options": ["elements", "Props", "Ref", "Keys"]
+      "options": [
+        "elements",
+        "Props",
+        "Ref",
+        "Keys"
+      ]
     },
     {
       "id": 252,
@@ -3062,7 +3462,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Arrow function syntax is: const Msg = () => 'Hi, there!'; The fat arrow '=>' is the defining feature of arrow functions in ES6.",
-      "options": [">", "() =", "() =>", "() = >"]
+      "options": [
+        ">",
+        "() =",
+        "() =>",
+        "() = >"
+      ]
     },
     {
       "id": 255,
@@ -3137,7 +3542,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "A React component must return exactly one root element. To return multiple, wrap them in a <div> or React Fragment (<> </>).",
-      "options": ["Multiple", "1", "Not more than two", "Null"]
+      "options": [
+        "Multiple",
+        "1",
+        "Not more than two",
+        "Null"
+      ]
     },
     {
       "id": 260,
@@ -3212,7 +3622,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "JSX comments use {/* comment here */} syntax. Regular HTML <!-- --> comments don't work inside JSX.",
-      "options": ["{/* /*}", "{*/ /*}", "{/* */}", "{*/ */}"]
+      "options": [
+        "{/* /*}",
+        "{*/ /*}",
+        "{/* */}",
+        "{*/ */}"
+      ]
     },
     {
       "id": 265,
@@ -3281,7 +3696,7 @@
       "id": 269,
       "unit": 7,
       "question": "Fill the blanks in code to map over images array and render each image: {______.map((val) => { return (<div><img _________ height='200px' width='200px' alt='logo' /></div>) })}",
-      "answer": "images, src={val.pic}",
+      "answer": "images,src={val.pic}",
       "marks": 1,
       "previousYear": false,
       "type": "mcq",
@@ -3334,13 +3749,18 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "v%10===0 returns false for 10, 30, 50 (excluded). 2 and 3 return true (included). newarr=[2,3]. join(',') = '2,3'.",
-      "options": ["10,30,50", "10", "10,2,30,3,50", "2,3"]
+      "options": [
+        "10,30,50",
+        "10",
+        "10,2,30,3,50",
+        "2,3"
+      ]
     },
     {
       "id": 273,
       "unit": 7,
       "question": "Identify correct code to change CSS, attributes and text of a paragraph on double click using e.target.",
-      "answer": "function changeCssAttr(e){ e.target.innerHTML='Thanks buddy'; e.target.style.fontFamily='times new roman'; e.target.align='center'; } return (<><p onDoubleClick={changeCssAttr}>This is my para</p></>)",
+      "answer": "using e.target.innerHTML with fontFamily",
       "marks": 1,
       "previousYear": false,
       "type": "mcq",
@@ -3409,7 +3829,12 @@
       "previousYear": true,
       "type": "mcq",
       "explanation": "React components in JSX start with an uppercase letter and use angle bracket syntax. <Button></Button> or self-closing <Button /> are both correct.",
-      "options": ["<Button></Button>", "render(Button)", "React.render(Button)", "React.createElement(Button)"]
+      "options": [
+        "<Button></Button>",
+        "render(Button)",
+        "React.render(Button)",
+        "React.createElement(Button)"
+      ]
     },
     {
       "id": 278,
@@ -3420,7 +3845,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Array.map() creates a new array by running a function on each element. It's the standard method for transforming arrays in React rendering.",
-      "options": ["execute", "apply", "map", "iterate"]
+      "options": [
+        "execute",
+        "apply",
+        "map",
+        "iterate"
+      ]
     },
     {
       "id": 279,
@@ -3431,7 +3861,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "JSX expressions are enclosed in single curly braces { }. Double braces are only for inline objects like style={{color:'red'}}.",
-      "options": ["{{ expression }}", "<{ expression }>", "{ expression }", "#{ expression }"]
+      "options": [
+        "{{ expression }}",
+        "<{ expression }>",
+        "{ expression }",
+        "#{ expression }"
+      ]
     },
     {
       "id": 280,
@@ -3474,7 +3909,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "onSubmit is the React event handler for form submission. It maps to the native DOM 'submit' event. Used as <form onSubmit={handleSubmit}>.",
-      "options": ["onFormSubmit", "onSubmitForm", "onSubmit", "handleFormSubmit"]
+      "options": [
+        "onFormSubmit",
+        "onSubmitForm",
+        "onSubmit",
+        "handleFormSubmit"
+      ]
     },
     {
       "id": 283,
@@ -3544,7 +3984,7 @@
       "id": 287,
       "unit": 7,
       "question": "Identify error/output: const a='Hello'; const b=8; return(<h1 style={{backgroundColor:'green'}}> The addition is: {a+2+b} </h1>);",
-      "answer": "Output: 'The addition is: Hello28' with green background color in <h1> tag",
+      "answer": "Output:'The addition is: Hello28' with green background color in <h1> tag",
       "marks": 1,
       "previousYear": true,
       "type": "mcq",
@@ -3613,7 +4053,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Statement 3 is correct: .map() is a callback called for each element. Statements 1,2,4,5 are incorrect (React works without webpack; pure functions not recursive; index.html loads first; virtual DOM is not for async).",
-      "options": ["1,2,3", "3,5", "3,4,5", "Only 3"]
+      "options": [
+        "1,2,3",
+        "3,5",
+        "3,4,5",
+        "Only 3"
+      ]
     },
     {
       "id": 292,
@@ -3624,7 +4069,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "Curly braces in JSX contain JavaScript expressions. {message} evaluates the variable message and embeds its value into the JSX.",
-      "options": ["a JS function", "a JS expression", "a JS event", "a JS property"]
+      "options": [
+        "a JS function",
+        "a JS expression",
+        "a JS event",
+        "a JS property"
+      ]
     },
     {
       "id": 293,
@@ -3667,7 +4117,12 @@
       "previousYear": false,
       "type": "mcq",
       "explanation": "onChange fires every time the input value changes. It's used for controlled components in React where the state tracks the input value in real time.",
-      "options": ["onChange", "onSubmit", "onClick", "onInputhere"]
+      "options": [
+        "onChange",
+        "onSubmit",
+        "onClick",
+        "onInputhere"
+      ]
     },
     {
       "id": 296,
@@ -4971,7 +5426,7 @@
       "id": 399,
       "unit": 9,
       "question": "Identify the equivalent NoSQL command of following SQL command: UPDATE lju SET status = 'Active' WHERE age = 25 and name = 'ABC'",
-      "answer": "db.lju.updateMany( { age: 25, name:'ABC' }, { $set: { status: 'Active' } } )",
+      "answer": "db.lju.updateMany( { age: 25,name:'ABC' }, { $set: { status: 'Active' } } )",
       "marks": 1,
       "previousYear": true,
       "type": "mcq",

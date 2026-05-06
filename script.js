@@ -5,17 +5,17 @@
    ═══════════════════════════════════════════ */
 
 const UNIT_META = {
-  "1":   { code:"// unit_1.js — JSON",               title:"Unit 1 · JSON Fundamentals",         desc:"JSON syntax, arrays, objects, parse, stringify, access methods, outputs and programming scripts." },
-  "2":   { code:"// unit_2.js — Node.js Core",        title:"Unit 2 · Node.js Core",              desc:"Modules, fs, path, events, EventEmitter, callbacks, event loop and file operations." },
-  "3":   { code:"// unit_3.js — HTTP & Servers",      title:"Unit 3 · HTTP & Servers",            desc:"HTTP server, routing, URL parsing, request-response, query strings and JSON responses." },
-  "4":   { code:"// unit_4.js — Express.js",          title:"Unit 4 · Express.js",                desc:"Express setup, routing, req/res, static files, query params and HTTP methods." },
-  "5":   { code:"// unit_5.js — Middleware & Cookies",title:"Unit 5 · Middleware & Cookies",      desc:"Express middleware, cookies, sessions, body-parser, error handlers." },
-  "6":   { code:"// unit_6.js — Template Engines",    title:"Unit 6 · Template Engines",          desc:"EJS, Pug, Handlebars — rendering dynamic views, partials, layouts." },
-  "7":   { code:"// unit_7.js — MongoDB",             title:"Unit 7 · MongoDB",                   desc:"NoSQL concepts, CRUD, collections, documents, queries, indexes." },
-  "8":   { code:"// unit_8.js — Mongoose",            title:"Unit 8 · Mongoose ODM",              desc:"Schema, Model, validation, virtuals, populate, middleware hooks." },
-  "9":   { code:"// unit_9.js — REST APIs",           title:"Unit 9 · REST API Design",           desc:"REST principles, HTTP methods, status codes, CRUD API, Postman testing." },
-  "10":  { code:"// unit_10.js — Auth & JWT",         title:"Unit 10 · Auth & JWT",               desc:"Authentication, bcrypt, JSON Web Tokens, protected routes, refresh tokens." },
-  "all": { code:"// all_units.js — Full Revision",    title:"All Units · Full Revision",          desc:"All 235+ questions across all 10 units. Searchable, filterable, exam-ready." }
+  "1":   { code:"// unit_1.js — JSON",               title:"Unit 1 · JSON (JavaScript Object Notation)",       desc:"JSON syntax, arrays, objects, parse, stringify, access methods, output identification and coding scripts." },
+  "2":   { code:"// unit_2.js — Node.js Core",        title:"Unit 2 · Node JS — Introduction & Core Modules",   desc:"require(), fs module (read/write/append/delete), path module, events, EventEmitter, callbacks, async vs sync." },
+  "3":   { code:"// unit_3.js — Server Creation",     title:"Unit 3 · Node JS Modules & Server Creation",       desc:"HTTP server creation, URL module, request/response objects, basic routing, query strings, JSON processing." },
+  "4":   { code:"// unit_4.js — Express.js",          title:"Unit 4 · Express JS Fundamentals",                 desc:"Express setup, app.get/post, req/res objects, static files, middleware, routing, GET/POST, res.send/json." },
+  "5":   { code:"// unit_5.js — State & API",         title:"Unit 5 · Express State Management and API",        desc:"Cookies, sessions (express-session), RESTful APIs, route parameters, cookie-parser, CORS, req.params/query." },
+  "6":   { code:"// unit_6.js — Advanced Express",    title:"Unit 6 · Express — Advanced Concept",              desc:"File uploads (Multer), Nodemailer (send emails), EJS template engine, diskStorage, file filters and size limits." },
+  "7":   { code:"// unit_7.js — React Fundamentals",  title:"Unit 7 · React Fundamentals & Core Concepts",      desc:"JSX, components, props, events, map/filter, routing (react-router-dom), conditional rendering, Vite setup." },
+  "8":   { code:"// unit_8.js — React Hooks & API",   title:"Unit 8 · React Hooks & API Integration",           desc:"useState, useEffect, useContext, useReducer, Axios API calls, forms, controlled components, state management." },
+  "9":   { code:"// unit_9.js — MongoDB",             title:"Unit 9 · MongoDB — Queries and Operators",          desc:"CRUD, comparison operators ($gt/$lt/$in/$nin), $set/$inc, sort/limit/skip, aggregation ($match/$group/$project/$sort)." },
+  "10":  { code:"// unit_10.js — Mongoose & MERN",    title:"Unit 10 · Mongoose & MERN Integration",             desc:"Mongoose schema/model, validation, indexing (IXSCAN/COLLSCAN), $regex, full-stack MERN connectivity, React-MongoDB." },
+  "all": { code:"// all_units.js — Full Revision",    title:"All Units · Full Revision",                         desc:"All 484 questions across all 10 units. Searchable, filterable, exam-ready. Filter by marks, type, PYQ." }
 };
 
 const LETTERS = ['A','B','C','D','E','F'];
@@ -37,7 +37,6 @@ function syntaxHighlight(text) {
   lines.forEach((line, i) => {
     const num = `<span class="line-num">${i+1}</span>`;
     let l = escapeHtml(line);
-    l = l.replace(/(&quot;[^&]*&quot;|'[^']*')/g, '<span class="syn-str">$1</span>');
     l = l.replace(/\b(var|const|let|function|return|require|if|else|for|new|class|import|export|module|async|await)\b/g, '<span class="syn-key">$1</span>');
     l = l.replace(/\b(console|fs|path|http|url|events|EventEmitter|JSON|Math|process|module|express|app|router|mongoose|Schema|Model)\b/g, '<span class="syn-fn">$1</span>');
     l = l.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-val">$1</span>');
@@ -236,7 +235,7 @@ async function initPage() {
   if (codeEl)  codeEl.textContent  = meta.code;
   if (titleEl) titleEl.textContent = meta.title;
   if (descEl)  descEl.textContent  = meta.desc;
-  if (statsUnitEl) statsUnitEl.textContent = meta.title;
+  if (statsUnitEl) statsUnitEl.textContent = unit === 'all' ? 'All Units' : `Unit ${unit}`;
 
   const searchInput = document.getElementById('searchInput');
   const marksFilter = document.getElementById('marksFilter');
