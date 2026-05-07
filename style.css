@@ -361,27 +361,29 @@ a {
 }
 
 /* ═══════════════════════════════════════════
-   UNIT PILL NAV — Segment Control Style
-   No ugly border-bottom line on active item
+   UNIT PILL NAV — MOBILE FIXED VERSION
+   Replace your OLD unit-pill-nav section with this
    ═══════════════════════════════════════════ */
+
 .unit-pill-nav {
    position: fixed;
    top: var(--topbar-h);
    left: 0;
    right: 0;
    z-index: 500;
-   height: var(--pill-nav-h);
-   background: rgba(7, 5, 15, 0.93);
+
+   min-height: var(--pill-nav-h);
+
+   background: rgba(7, 5, 15, 0.94);
+
    backdrop-filter: blur(18px);
    -webkit-backdrop-filter: blur(18px);
+
    border-bottom: 1px solid var(--border);
-   display: flex;
-   align-items: center;
-   gap: 0.3rem;
-   /* consistent padding — same as page-px */
-   padding: 0 var(--page-px);
+
    overflow-x: auto;
    overflow-y: hidden;
+
    scrollbar-width: none;
    -webkit-overflow-scrolling: touch;
 }
@@ -390,39 +392,120 @@ a {
    display: none;
 }
 
-/* Each pill — clean rounded button */
+/* Track */
+.pill-track {
+   display: flex;
+   align-items: center;
+   gap: 0.55rem;
+
+   min-width: max-content;
+
+   padding: 0.55rem var(--page-px);
+}
+
+/* Pills */
 .unit-pill {
    flex-shrink: 0;
-   padding: 0.3rem 0.88rem;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.35rem;
+
+   padding: 0.52rem 0.95rem;
+
    border-radius: 999px;
+
    font-family: 'Fira Code', monospace;
    font-size: 0.72rem;
    font-weight: 600;
+
    border: 1px solid transparent;
-   background: transparent;
+
+   background: rgba(255, 255, 255, 0.03);
+
    color: var(--muted);
-   transition: all 0.2s ease;
+
    white-space: nowrap;
-   cursor: pointer;
-   /* NO underline, NO border-bottom tricks */
+
+   transition: all 0.22s ease;
+
    text-decoration: none;
+
+   cursor: pointer;
 }
 
+/* Hover */
 .unit-pill:hover {
    background: var(--glass2);
-   color: var(--purple-lt);
+
    border-color: var(--border);
+
+   color: var(--purple-lt);
 }
 
-/* Active — solid pill, no underline */
+/* Active */
 .unit-pill.active {
-   background: var(--purple);
-   border-color: var(--purple);
+   background: linear-gradient(
+      135deg,
+      var(--purple-dk),
+      var(--purple)
+   );
+
    color: #fff;
-   box-shadow: 0 0 14px rgba(139, 92, 246, 0.45);
+
+   border-color: transparent;
+
+   box-shadow:
+      0 0 14px rgba(139, 92, 246, 0.35);
+
    font-weight: 700;
 }
 
+/* ═══════════════════════════════════════════
+   PAGE WRAP FIX
+   Replace old .unit-page-wrap
+   ═══════════════════════════════════════════ */
+
+.unit-page-wrap {
+   padding-top: calc(
+      var(--topbar-h) + var(--pill-nav-h) + 0.45rem
+   );
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE OPTIMIZATION
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+
+   :root {
+      --pill-nav-h: 58px;
+   }
+
+   .unit-pill-nav {
+
+      scroll-snap-type: x proximity;
+
+      padding-bottom: 0.1rem;
+   }
+
+   .pill-track {
+      gap: 0.45rem;
+
+      padding: 0.6rem 0.85rem;
+   }
+
+   .unit-pill {
+
+      scroll-snap-align: start;
+
+      font-size: 0.68rem;
+
+      padding: 0.5rem 0.82rem;
+      min-height: 36px;
+   }
+}
 /* ═══════════════════════════════════════════
    PAGE WRAP — consistent top offsets
    ═══════════════════════════════════════════ */
