@@ -101,9 +101,7 @@ function getCorrectOptionIndex(item) {
   const correctLower = item.answer.toLowerCase().trim();
   for (let i = 0; i < item.options.length; i++) {
     const optLower = item.options[i].toLowerCase().trim();
-    if (optLower === correctLower ||
-        optLower.includes(correctLower) ||
-        correctLower.includes(optLower.substring(0, Math.min(optLower.length, 20))))
+    if (optLower === correctLower)
       return i;
   }
   return -1;
