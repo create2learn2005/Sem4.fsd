@@ -1,77 +1,77 @@
-# FSD-2 Quiz / Interview System
+# FSD-2 Purple Portal — LJU Exam Prep
 
-A responsive quiz and interview preparation portal for Semester 4 FSD-2 revision. The app includes unit-wise navigation, MCQ practice, answer reveal panels, search, filters, question jump, PYQ tagging, and a lightweight Node server for local hosting.
+A modern, responsive exam preparation portal for LJ University Full Stack Development 2 (FSD-2) course. Practice **484 questions** across **10 units** with MCQ, theory, descriptive, and programming question types.
 
-> Note: this workspace contains a static HTML/CSS/JS frontend, not an extracted React source tree. The current upgrade keeps the existing design and adds a dependency-free Node backend/server so the project runs cleanly over HTTP.
+## Features
+
+- **Multi-Page Architecture**: Split data into per-unit JSON files for faster loading
+- **Mobile & Desktop Responsive**: Works perfectly on phones and PCs
+- **MCQ Interactive Mode**: Click options to check answers with visual feedback
+- **Jump to Question**: Navigate directly to any question by number
+- **Advanced Filtering**: Search by keyword, marks, PYQ status, and question type
+- **Code Syntax Highlighting**: VSCode-style highlighting for code answers
+- **Smooth Animations**: Modern UI with glassmorphism and ambient effects
+- **Accessibility**: Keyboard navigation, ARIA labels, screen reader support
+
+## Project Structure
+
+```
+fsd2-portal/
+├── index.html          # Home page
+├── unit.html           # Unit viewer page (all questions)
+├── style.css           # Styles (mobile + desktop responsive)
+├── script.js           # Application logic
+├── README.md           # This file
+├── BUGS_FIXED.md       # Detailed list of bugs found and fixed
+└── data/               # Split JSON data for faster loading
+    ├── data_u1.json    # Unit 1: JSON (36 questions)
+    ├── data_u2.json    # Unit 2: Node.js Core (52 questions)
+    ├── data_u3.json    # Unit 3: Server Creation (30 questions)
+    ├── data_u4.json    # Unit 4: Express.js (46 questions)
+    ├── data_u5.json    # Unit 5: State & API (44 questions)
+    ├── data_u6.json    # Unit 6: Advanced Express (34 questions)
+    ├── data_u7.json    # Unit 7: React Fundamentals (78 questions)
+    ├── data_u8.json    # Unit 8: React Hooks (68 questions)
+    ├── data_u9.json    # Unit 9: MongoDB (56 questions)
+    └── data_u10.json   # Unit 10: Mongoose & MERN (40 questions)
+```
+
+## How to Run
+
+### Using a Local Server (Required for fetch to work)
+```bash
+cd fsd2-portal
+python -m http.server 8000
+# Visit http://localhost:8000
+```
+
+### Using VS Code Live Server
+- Install the Live Server extension
+- Right-click on `index.html` → Open with Live Server
+
+### Using Node.js
+```bash
+npx serve fsd2-portal
+```
+
+## Responsive Breakpoints
+
+- **Very Small Phones**: < 360px
+- **Small Phones**: < 520px (single column, touch-friendly)
+- **Medium Phones**: 521px - 768px
+- **Tablets**: 600px - 1023px (2-column options)
+- **Desktop**: ≥ 1024px (full layout with terminal sidebar)
 
 ## Tech Stack
 
-- Frontend: HTML5, CSS3, vanilla JavaScript
-- Backend/local server: Node.js built-in `http` module
-- Data: `data.json`
-- UI assets: Google Fonts and Font Awesome CDN
+- HTML5, CSS3, JavaScript (Vanilla)
+- Font Awesome 6.5 for icons
+- Google Fonts (Oxanium, Outfit, Fira Code)
 
-## Folder Structure
+## Bugs Fixed
 
-```text
-.
-├── index.html       # Home page
-├── unit.html        # Quiz/question viewer page
-├── style.css        # Full responsive UI styling
-├── script.js        # Question rendering, filters, MCQ behavior
-├── data.json        # Question bank
-├── server.js        # Node local server and questions API
-├── package.json     # Run scripts
-└── README.md        # Project documentation
-```
+See [BUGS_FIXED.md](BUGS_FIXED.md) for the complete list of all 30+ bugs found and fixed.
 
-## Setup
+## License
 
-1. Install Node.js 18 or newer.
-2. Open the project folder in a terminal.
-3. Run:
-
-```bash
-npm start
-```
-
-4. Open:
-
-```text
-http://localhost:3000
-```
-
-Useful API endpoint:
-
-```text
-http://localhost:3000/api/questions?unit=all&type=mcq
-```
-
-## Bugs Found
-
-- MCQ question text and long code-like options could overflow outside the card.
-- Options were rendered as generic divs, which made click behavior and keyboard accessibility weaker.
-- Option cards could become cramped in two-column layouts on small tablets.
-- Toolbar, filters, buttons, and footer could force horizontal overflow on mobile.
-- Home page had a broken closing `</nav>` tag without an opening nav.
-- Marks filter was visible but not actually functional in JavaScript.
-- Some controls were missing button types or accessible labels.
-
-## What Was Fixed
-
-- Added robust wrapping with `overflow-wrap`, `word-break`, and responsive grid constraints.
-- Converted MCQ options into full-width button controls with consistent padding and hit area.
-- Added answered/selected state handling for MCQs and disabled options after selection.
-- Improved mobile, tablet, and desktop breakpoints for the toolbar, filters, cards, options, and footer.
-- Fixed the home topbar HTML structure.
-- Populated the marks dropdown dynamically from `data.json` and enabled mark filtering.
-- Added safer JS guards for missing data fields and reused controls.
-- Added a local Node server with static hosting and a `/api/questions` endpoint.
-
-## UI/UX Improvements
-
-- Cleaner question cards with consistent spacing and subtle depth.
-- Better hover and focus states for options and controls.
-- More stable responsive layouts using flexible grids and rem-based spacing.
-- Full-width mobile-friendly buttons where needed.
-- Answer/code panels now wrap or scroll safely without breaking the page.
+© 2026 LJ United Networks · Dixit Patel

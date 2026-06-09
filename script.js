@@ -1,35 +1,28 @@
-/* ═══════════════════════════════════════════
-   FSD-2 Portal — script.js
-   Features: Jump to Q.No, Descriptive Filter,
-             10 Units, Mobile Drawer Nav
-   ═══════════════════════════════════════════ */
-
 const UNIT_META = {
-  "1":   { code:"// unit_1.js — JSON",               title:"Unit 1 · JSON (JavaScript Object Notation)",       desc:"JSON syntax, arrays, objects, parse, stringify, access methods, output identification and coding scripts." },
-  "2":   { code:"// unit_2.js — Node.js Core",        title:"Unit 2 · Node JS — Introduction & Core Modules",   desc:"require(), fs module (read/write/append/delete), path module, events, EventEmitter, callbacks, async vs sync." },
-  "3":   { code:"// unit_3.js — Server Creation",     title:"Unit 3 · Node JS Modules & Server Creation",       desc:"HTTP server creation, URL module, request/response objects, basic routing, query strings, JSON processing." },
-  "4":   { code:"// unit_4.js — Express.js",          title:"Unit 4 · Express JS Fundamentals",                 desc:"Express setup, app.get/post, req/res objects, static files, middleware, routing, GET/POST, res.send/json." },
-  "5":   { code:"// unit_5.js — State & API",         title:"Unit 5 · Express State Management and API",        desc:"Cookies, sessions (express-session), RESTful APIs, route parameters, cookie-parser, CORS, req.params/query." },
-  "6":   { code:"// unit_6.js — Advanced Express",    title:"Unit 6 · Express — Advanced Concept",              desc:"File uploads (Multer), Nodemailer (send emails), EJS template engine, diskStorage, file filters and size limits." },
-  "7":   { code:"// unit_7.js — React Fundamentals",  title:"Unit 7 · React Fundamentals & Core Concepts",      desc:"JSX, components, props, events, map/filter, routing (react-router-dom), conditional rendering, Vite setup." },
-  "8":   { code:"// unit_8.js — React Hooks & API",   title:"Unit 8 · React Hooks & API Integration",           desc:"useState, useEffect, useContext, useReducer, Axios API calls, forms, controlled components, state management." },
-  "9":   { code:"// unit_9.js — MongoDB",             title:"Unit 9 · MongoDB — Queries and Operators",          desc:"CRUD, comparison operators ($gt/$lt/$in/$nin), $set/$inc, sort/limit/skip, aggregation ($match/$group/$project/$sort)." },
-  "10":  { code:"// unit_10.js — Mongoose & MERN",    title:"Unit 10 · Mongoose & MERN Integration",             desc:"Mongoose schema/model, validation, indexing (IXSCAN/COLLSCAN), $regex, full-stack MERN connectivity, React-MongoDB." },
-  "all": { code:"// all_units.js — Full Revision",    title:"All Units · Full Revision",                         desc:"All 484 questions across all 10 units. Searchable, filterable, exam-ready. Filter by marks, type, PYQ." }
+  "1":  { code:"// unit_1.js — JSON",           title:"Unit 1 · JSON (JavaScript Object Notation)",  desc:"JSON syntax, arrays, objects, parse, stringify, access methods." },
+  "2":  { code:"// unit_2.js — Node.js Core",   title:"Unit 2 · Node JS — Introduction & Core Modules", desc:"require(), fs module, path module, events, EventEmitter, callbacks." },
+  "3":  { code:"// unit_3.js — Server Creation", title:"Unit 3 · Node JS Modules & Server Creation", desc:"HTTP server creation, URL module, request/response objects, basic routing." },
+  "4":  { code:"// unit_4.js — Express.js",      title:"Unit 4 · Express JS Fundamentals",             desc:"Express setup, app.get/post, req/res objects, middleware, routing." },
+  "5":  { code:"// unit_5.js — State & API",     title:"Unit 5 · Express State Management and API",    desc:"Cookies, sessions, RESTful APIs, route parameters, CORS." },
+  "6":  { code:"// unit_6.js — Advanced Express",title:"Unit 6 · Express — Advanced Concept",           desc:"File uploads (Multer), Nodemailer, EJS template engine." },
+  "7":  { code:"// unit_7.js — React",           title:"Unit 7 · React Fundamentals & Core Concepts",   desc:"JSX, components, props, events, routing, conditional rendering." },
+  "8":  { code:"// unit_8.js — React Hooks",     title:"Unit 8 · React Hooks & API Integration",       desc:"useState, useEffect, useContext, useReducer, Axios, forms." },
+  "9":  { code:"// unit_9.js — MongoDB",         title:"Unit 9 · MongoDB — Queries and Operators",      desc:"CRUD, comparison operators, $set/$inc, sort/limit, aggregation." },
+  "10": { code:"// unit_10.js — Mongoose & MERN",title:"Unit 10 · Mongoose & MERN Integration",         desc:"Mongoose schema/model, validation, indexing, full-stack MERN." },
+  "all":{ code:"// all_units.js — Full Revision",title:"All Units · Full Revision",                     desc:"All 484 questions across all 10 units. Searchable, filterable." }
 };
 
 const LETTERS = ['A','B','C','D','E','F'];
 
-/* ── helpers ── */
 function getParam(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
+
 function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  if (typeof s !== 'string') return String(s || '');
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
 }
 
-/* ── VSCode-style syntax highlighter ── */
 function syntaxHighlight(text) {
   if (!text) return '';
   const lines = text.split('\n');
@@ -38,7 +31,7 @@ function syntaxHighlight(text) {
     const num = `<span class="line-num">${i+1}</span>`;
     let l = escapeHtml(line);
     l = l.replace(/\b(var|const|let|function|return|require|if|else|for|new|class|import|export|module|async|await)\b/g, '<span class="syn-key">$1</span>');
-    l = l.replace(/\b(console|fs|path|http|url|events|EventEmitter|JSON|Math|process|module|express|app|router|mongoose|Schema|Model)\b/g, '<span class="syn-fn">$1</span>');
+    l = l.replace(/\b(console|fs|path|http|url|events|EventEmitter|JSON|Math|process|module\.exports|express|app|router|mongoose|Schema|Model)\b/g, '<span class="syn-fn">$1</span>');
     l = l.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-val">$1</span>');
     l = l.replace(/\b(true|false|null|undefined)\b/g, '<span class="syn-bool">$1</span>');
     l = l.replace(/(\/\/.*$)/g, '<span class="syn-com">$1</span>');
@@ -51,24 +44,16 @@ function syntaxHighlight(text) {
   return out;
 }
 
-/* ── Build Answer Panel ── */
 function buildAnswerPanel(item) {
   const answerText = `Answer:\n${item.answer}`;
-  const explText   = item.explanation ? `\nExplanation:\n${item.explanation}` : '';
-  const fullText   = answerText + explText;
-
-  const codeBlock = item.code
-    ? `<div class="code-block-wrap">${escapeHtml(item.code)}</div>`
-    : '';
-
+  const explText = item.explanation ? `\nExplanation:\n${item.explanation}` : '';
+  const fullText = answerText + explText;
+  const codeBlock = item.code ? `<div class="code-block-wrap">${escapeHtml(item.code)}</div>` : '';
   return `
     <div class="q-answer-panel" id="ans-${item.id}">
       <div class="vscode-panel">
         <div class="vscode-tabs">
-          <div class="vscode-tab active">
-            <span class="vscode-tab-dot"></span>
-            answer.js
-          </div>
+          <div class="vscode-tab active"><span class="vscode-tab-dot"></span>answer.js</div>
           ${item.explanation ? `<div class="vscode-tab" style="color:var(--dim)">explanation</div>` : ''}
         </div>
         <div class="vscode-body">
@@ -77,32 +62,35 @@ function buildAnswerPanel(item) {
           ${codeBlock}
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-/* ── Build Options ── */
 function buildOptions(item) {
-  if (!Array.isArray(item.options) || !item.options.length) return '';
-  let html = `<div class="q-options"><div class="options-grid" id="opts-${item.id}" role="group" aria-label="Options for question ${item.id}">`;
+  if (!item.options || !item.options.length) return '';
+  let html = `<div class="q-options"><div class="options-grid" id="opts-${item.id}">`;
   item.options.forEach((opt, i) => {
-    html += `
-      <button type="button" class="option-item" data-idx="${i}" data-qid="${item.id}" aria-pressed="false">
-        <span class="opt-letter">${LETTERS[i]}</span>
-        <span class="opt-text">${escapeHtml(opt)}</span>
-      </button>`;
+    html += `<div class="option-item" data-idx="${i}" data-qid="${item.id}" role="button" tabindex="0" aria-label="Option ${LETTERS[i]}"><span class="opt-letter">${LETTERS[i]}</span><span class="opt-text">${escapeHtml(opt)}</span></div>`;
   });
   html += `</div></div>`;
   return html;
 }
 
 function getCorrectOptionIndex(item) {
-  if (!Array.isArray(item.options)) return -1;
-  const correctLower = String(item.answer || '').toLowerCase().trim();
+  if (!item.options || !item.options.length) return -1;
+  const answerLower = item.answer.toLowerCase().trim();
   for (let i = 0; i < item.options.length; i++) {
-    const optLower = String(item.options[i] || '').toLowerCase().trim();
-    if (optLower === correctLower)
-      return i;
+    if (item.options[i].toLowerCase().trim() === answerLower) return i;
+  }
+  for (let i = 0; i < item.options.length; i++) {
+    const optLower = item.options[i].toLowerCase().trim();
+    if (optLower.includes(answerLower) || answerLower.includes(optLower)) return i;
+  }
+  const answerNum = answerLower.match(/^(option\s*)?([a-fA-F1-6])\.?\s*$/);
+  if (answerNum) {
+    const letter = answerNum[2];
+    if (letter.toLowerCase() >= 'a' && letter.toLowerCase() <= 'f') return letter.toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0);
+    const num = parseInt(letter);
+    if (num >= 1 && num <= item.options.length) return num - 1;
   }
   return -1;
 }
@@ -112,59 +100,39 @@ function attachOptionListeners(item, card) {
   if (!optsContainer) return;
   const correctIdx = getCorrectOptionIndex(item);
   let answered = false;
-
   optsContainer.querySelectorAll('.option-item').forEach(opt => {
-    opt.addEventListener('click', (e) => {
+    const handleOptionClick = (e) => {
       e.stopPropagation();
       if (answered) return;
       answered = true;
-      const chosen = Number(opt.dataset.idx);
+      const chosen = parseInt(opt.dataset.idx);
       const answerPanel = card.querySelector(`#ans-${item.id}`);
-      const revealBtn   = card.querySelector('.q-reveal-btn');
-      optsContainer.classList.add('answered');
-      card.classList.add('expanded');
-      const header = card.querySelector('.q-header');
-      if (header) header.setAttribute('aria-expanded', 'true');
-
+      const revealBtn = card.querySelector('.q-reveal-btn');
       optsContainer.querySelectorAll('.option-item').forEach((o, i) => {
-        o.disabled = true;
-        o.setAttribute('aria-pressed', i === chosen ? 'true' : 'false');
-        if (i === correctIdx) {
-          o.classList.add('correct');
-          o.querySelector('.opt-letter').textContent = '✓';
-        } else if (i === chosen && chosen !== correctIdx) {
-          o.classList.add('selected-wrong');
-          o.querySelector('.opt-letter').textContent = '✗';
-        } else {
-          o.classList.add('wrong');
-        }
+        if (i === correctIdx) { o.classList.add('correct'); o.querySelector('.opt-letter').textContent = '✓'; }
+        else if (i === chosen && chosen !== correctIdx) { o.classList.add('selected-wrong'); o.querySelector('.opt-letter').textContent = '✗'; }
+        else { o.classList.add('wrong'); }
       });
-
-      if (answerPanel) {
-        answerPanel.classList.add('show');
-        if (revealBtn) revealBtn.style.display = 'none';
-      }
-    });
+      if (answerPanel) { answerPanel.classList.add('show'); if (revealBtn) revealBtn.style.display = 'none'; }
+    };
+    opt.addEventListener('click', handleOptionClick);
+    opt.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOptionClick(e); } });
   });
 }
 
-/* ── Build Question Card ── */
 function buildCard(item) {
-  const hasMCQ   = Array.isArray(item.options) && item.options.length > 0;
-  const qType    = item.type || (hasMCQ ? 'mcq' : 'theory');
-  const isProg   = qType === 'programming';
-  const isDesc   = qType === 'descriptive';
-  const isTheory = qType === 'theory';
-
+  const hasMCQ = item.options && item.options.length > 0;
+  const qType = item.type || (hasMCQ ? 'mcq' : 'theory');
   let typeBadge = '';
-  if (isProg)   typeBadge = `<span class="badge-q bq-code">{ } code</span>`;
-  else if (isDesc) typeBadge = `<span class="badge-q bq-desc">📝 descriptive</span>`;
-  else if (isTheory) typeBadge = `<span class="badge-q bq-theory">📘 theory</span>`;
+  if (qType === 'programming') typeBadge = `<span class="badge-q bq-code">{ } code</span>`;
+  else if (qType === 'descriptive') typeBadge = `<span class="badge-q bq-desc">📝 descriptive</span>`;
+  else if (qType === 'theory') typeBadge = `<span class="badge-q bq-theory">📘 theory</span>`;
 
   const card = document.createElement('div');
   card.className = 'q-card';
   card.dataset.qid = item.id;
   card.id = `qcard-${item.id}`;
+  card.setAttribute('role', 'listitem');
 
   card.innerHTML = `
     <div class="q-card-left-accent"></div>
@@ -180,45 +148,23 @@ function buildCard(item) {
       <div class="q-text">${escapeHtml(item.question)}</div>
     </div>
     ${buildOptions(item)}
-    ${!hasMCQ ? `<button type="button" class="q-reveal-btn visible">
-      <i class="fas fa-eye"></i> Reveal Answer
-    </button>` : ''}
+    ${!hasMCQ ? `<button class="q-reveal-btn visible"><i class="fas fa-eye"></i> Reveal Answer</button>` : ''}
     ${buildAnswerPanel(item)}
   `;
 
-  /* header click → expand/collapse */
   const header = card.querySelector('.q-header');
-  header.setAttribute('role', 'button');
-  header.setAttribute('tabindex', '0');
-  header.setAttribute('aria-expanded', 'false');
-
-  function toggleCard() {
+  header.addEventListener('click', () => {
     card.classList.toggle('expanded');
-    header.setAttribute('aria-expanded', card.classList.contains('expanded') ? 'true' : 'false');
     const panel = card.querySelector(`#ans-${item.id}`);
     if (!hasMCQ && panel) panel.classList.toggle('show');
-  }
-
-  header.addEventListener('click', toggleCard);
-  header.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleCard();
-    }
   });
 
-  /* reveal button */
   const revealBtn = card.querySelector('.q-reveal-btn');
   if (revealBtn) {
     revealBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const panel = card.querySelector(`#ans-${item.id}`);
-      if (panel) {
-        panel.classList.add('show');
-        card.classList.add('expanded');
-        header.setAttribute('aria-expanded', 'true');
-        revealBtn.style.display = 'none';
-      }
+      if (panel) { panel.classList.add('show'); card.classList.add('expanded'); revealBtn.style.display = 'none'; }
     });
   }
 
@@ -226,9 +172,6 @@ function buildCard(item) {
   return card;
 }
 
-/* ══════════════════════════════════
-   MAIN PAGE INIT
-   ══════════════════════════════════ */
 async function initPage() {
   const list = document.getElementById('questionList');
   if (!list) return;
@@ -236,98 +179,63 @@ async function initPage() {
   const unit = getParam('unit') || '1';
   const meta = UNIT_META[unit] || UNIT_META['1'];
 
-  /* pill nav active state */
-  document.querySelectorAll('.unit-pill[data-unit]').forEach(a => {
-    a.classList.toggle('active', a.dataset.unit === unit);
-  });
-  /* drawer active state */
-  document.querySelectorAll('.drawer-link[data-unit]').forEach(a => {
-    a.classList.toggle('active', a.dataset.unit === unit);
-  });
+  document.querySelectorAll('.unit-pill[data-unit]').forEach(a => a.classList.toggle('active', a.dataset.unit === unit));
+  document.querySelectorAll('.drawer-link[data-unit]').forEach(a => a.classList.toggle('active', a.dataset.unit === unit));
 
-  /* page head */
-  const codeEl  = document.getElementById('unitCode');
+  const codeEl = document.getElementById('unitCode');
   const titleEl = document.getElementById('unitTitle');
-  const descEl  = document.getElementById('unitDesc');
+  const descEl = document.getElementById('unitDesc');
   const statsUnitEl = document.getElementById('statsUnit');
-  if (codeEl)  codeEl.textContent  = meta.code;
+  if (codeEl) codeEl.textContent = meta.code;
   if (titleEl) titleEl.textContent = meta.title;
-  if (descEl)  descEl.textContent  = meta.desc;
+  if (descEl) descEl.textContent = meta.desc;
   if (statsUnitEl) statsUnitEl.textContent = unit === 'all' ? 'All Units' : `Unit ${unit}`;
 
   const searchInput = document.getElementById('searchInput');
   const marksFilter = document.getElementById('marksFilter');
-  const pyqFilter   = document.getElementById('pyqFilter');
-  const typeFilter  = document.getElementById('typeFilter');
+  const pyqFilter = document.getElementById('pyqFilter');
+  const typeFilter = document.getElementById('typeFilter');
   const visibleCount = document.getElementById('visibleCount');
 
-  /* ── Hamburger / Drawer ── */
-  const hamburgerBtn  = document.getElementById('hamburgerBtn');
-  const navDrawer     = document.getElementById('navDrawer');
+  /* Hamburger / Drawer */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navDrawer = document.getElementById('navDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  function openDrawer() {
-    navDrawer.classList.add('open');
-    drawerOverlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    navDrawer.classList.remove('open');
-    drawerOverlay.classList.remove('show');
-    document.body.style.overflow = '';
-  }
-  if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('open');
-    navDrawer.classList.contains('open') ? closeDrawer() : openDrawer();
-  });
-  if (drawerOverlay) drawerOverlay.addEventListener('click', () => {
-    hamburgerBtn.classList.remove('open');
-    closeDrawer();
-  });
+  function openDrawer() { navDrawer.classList.add('open'); drawerOverlay.classList.add('show'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { navDrawer.classList.remove('open'); drawerOverlay.classList.remove('show'); document.body.style.overflow = ''; }
 
-  /* ── Back to Top ── */
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => { hamburgerBtn.classList.toggle('open'); navDrawer.classList.contains('open') ? closeDrawer() : openDrawer(); });
+  if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && navDrawer.classList.contains('open')) { hamburgerBtn.classList.remove('open'); closeDrawer(); } });
+
+  /* Back to Top */
   const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
-  });
-  if (backToTop) backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  window.addEventListener('scroll', () => { if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
+  if (backToTop) backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
   try {
-    const res = await fetch('data.json');
-    const db  = await res.json();
-    let questions = db.questions.filter(q =>
-      unit === 'all' || String(q.unit) === String(unit)
-    );
+    const res = await fetch(`data/data_u${unit}.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const db = await res.json();
+    let questions = db.questions || [];
 
-    function populateMarksFilter() {
-      if (!marksFilter) return;
-      const marks = [...new Set(questions.map(q => q.marks).filter(mark => mark !== undefined && mark !== null))]
-        .sort((a, b) => Number(a) - Number(b));
-
+    if (marksFilter) {
+      const marksSet = [...new Set(questions.map(q => q.marks))].sort((a, b) => a - b);
       marksFilter.innerHTML = '<option value="all">All Marks</option>';
-      marks.forEach(mark => {
-        const option = document.createElement('option');
-        option.value = String(mark);
-        option.textContent = `${mark} Marks`;
-        marksFilter.appendChild(option);
+      marksSet.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m;
+        opt.textContent = `${m} mark${m !== 1 ? 's' : ''}`;
+        marksFilter.appendChild(opt);
       });
     }
 
-    populateMarksFilter();
-
-    /* ── Render ── */
     function render(data) {
       list.innerHTML = '';
       if (visibleCount) visibleCount.textContent = data.length;
       if (!data.length) {
-        list.innerHTML = `
-          <div class="no-results">
-            <i class="fas fa-terminal" style="font-size:2rem;color:var(--purple);margin-bottom:1rem;display:block"></i>
-            No questions match your filters.<br>
-            <span style="font-size:0.75rem;color:var(--dim)">// try different keywords</span>
-          </div>`;
+        list.innerHTML = `<div class="no-results"><i class="fas fa-terminal" style="font-size:2rem;color:var(--purple);margin-bottom:1rem;display:block"></i>No questions match your filters.<br><span style="font-size:0.75rem;color:var(--dim)">// try different keywords</span></div>`;
         return;
       }
       const frag = document.createDocumentFragment();
@@ -335,118 +243,73 @@ async function initPage() {
       list.appendChild(frag);
     }
 
-    /* ── Apply Filters ── */
     function applyFilters() {
-      const s = ((searchInput && searchInput.value) || '').toLowerCase().trim();
-      const m = marksFilter ? marksFilter.value : 'all';
-      const p = pyqFilter ? pyqFilter.value : 'all';
-      const t = typeFilter ? typeFilter.value : 'all';
-
+      const s = (searchInput.value || '').toLowerCase().trim();
+      const m = marksFilter.value;
+      const p = pyqFilter.value;
+      const t = typeFilter.value;
       const filtered = questions.filter(q => {
-        const matchS = !s ||
-          String(q.question || '').toLowerCase().includes(s) ||
-          String(q.answer || '').toLowerCase().includes(s) ||
-          String(q.explanation || '').toLowerCase().includes(s);
+        const matchS = !s || q.question.toLowerCase().includes(s) || q.answer.toLowerCase().includes(s) || (q.explanation||'').toLowerCase().includes(s);
         const matchM = m === 'all' || String(q.marks) === m;
         const matchP = p === 'all' || (p === 'yes' && q.previousYear) || (p === 'no' && !q.previousYear);
-
-        /* type matching — includes descriptive */
-        const hasOptions = Array.isArray(q.options) && q.options.length > 0;
-        const qType = q.type || (hasOptions ? 'mcq' : 'theory');
+        const qType = q.type || (q.options && q.options.length ? 'mcq' : 'theory');
         let matchT = t === 'all';
         if (!matchT) {
-          if (t === 'mcq')         matchT = hasOptions;
+          if (t === 'mcq') matchT = (q.options && q.options.length > 0);
           else if (t === 'descriptive') matchT = qType === 'descriptive';
-          else if (t === 'programming') matchT = qType === 'programming';
-          else if (t === 'theory')  matchT = (qType === 'theory' && !hasOptions);
+          else if (t === 'theory') matchT = (qType === 'theory' && !(q.options && q.options.length));
         }
         return matchS && matchM && matchP && matchT;
       });
       render(filtered);
     }
 
-    if (searchInput) searchInput.addEventListener('input', applyFilters);
-    if (marksFilter) marksFilter.addEventListener('change', applyFilters);
-    if (pyqFilter) pyqFilter.addEventListener('change', applyFilters);
-    if (typeFilter) typeFilter.addEventListener('change', applyFilters);
+    let searchTimeout;
+    searchInput.addEventListener('input', () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(applyFilters, 200); });
+    marksFilter.addEventListener('change', applyFilters);
+    pyqFilter.addEventListener('change', applyFilters);
+    typeFilter.addEventListener('change', applyFilters);
 
     render(questions);
 
-    /* ════════════════════════════════════
-       FEATURE 1 — JUMP TO Q.No
-       ════════════════════════════════════ */
     const jumpInput = document.getElementById('jumpInput');
-    const jumpBtn   = document.getElementById('jumpBtn');
+    const jumpBtn = document.getElementById('jumpBtn');
 
     function doJump() {
-      const val = parseInt((jumpInput && jumpInput.value) || '0', 10);
+      const val = parseInt((jumpInput && jumpInput.value) || '0');
       if (!val) return shakeJump();
-
-      /* First: is card already rendered? */
       let target = document.getElementById(`qcard-${val}`);
       if (!target) {
-        /* Question may have been filtered out — reset filters & re-render */
-        if (searchInput) searchInput.value = '';
-        if (marksFilter) marksFilter.value = 'all';
-        if (pyqFilter) pyqFilter.value = 'all';
-        if (typeFilter) typeFilter.value = 'all';
+        searchInput.value = ''; marksFilter.value = 'all'; pyqFilter.value = 'all'; typeFilter.value = 'all';
         render(questions);
         target = document.getElementById(`qcard-${val}`);
       }
       if (!target) { shakeJump(); showJumpError(val); return; }
-
-      /* Scroll */
       const yOffset = -130;
       const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
-
-      /* Highlight */
       target.classList.add('jump-highlight');
       setTimeout(() => target.classList.remove('jump-highlight'), 2200);
-
-      /* Auto-expand */
-      setTimeout(() => {
-        if (!target.classList.contains('expanded')) {
-          const targetHeader = target.querySelector('.q-header');
-          if (targetHeader) targetHeader.click();
-        }
-      }, 500);
-
+      setTimeout(() => { if (!target.classList.contains('expanded')) { target.querySelector('.q-header').click(); } }, 500);
       if (jumpInput) jumpInput.value = '';
     }
 
-    function shakeJump() {
-      const panel = document.querySelector('.jump-panel');
-      if (!panel) return;
-      panel.classList.add('shake');
-      setTimeout(() => panel.classList.remove('shake'), 500);
-    }
-
+    function shakeJump() { const panel = document.querySelector('.jump-panel'); if (!panel) return; panel.classList.add('shake'); setTimeout(() => panel.classList.remove('shake'), 500); }
     function showJumpError(val) {
       const existing = document.getElementById('jumpErrMsg');
       if (existing) existing.remove();
       const err = document.createElement('div');
-      err.id = 'jumpErrMsg';
-      err.className = 'jump-error';
-      err.textContent = `Q${val} not found in this unit`;
-      const panel = document.querySelector('.jump-panel');
-      if (panel) panel.appendChild(err);
+      err.id = 'jumpErrMsg'; err.className = 'jump-error'; err.textContent = `Q${val} not found in this unit`;
+      document.querySelector('.jump-panel').appendChild(err);
       setTimeout(() => err.remove(), 2500);
     }
 
-    if (jumpBtn)   jumpBtn.addEventListener('click', doJump);
-    if (jumpInput) jumpInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') doJump();
-    });
+    if (jumpBtn) jumpBtn.addEventListener('click', doJump);
+    if (jumpInput) jumpInput.addEventListener('keydown', e => { if (e.key === 'Enter') doJump(); });
 
   } catch(e) {
     console.error(e);
-    list.innerHTML = `
-      <div class="no-results">
-        <i class="fas fa-exclamation-triangle" style="color:var(--red);font-size:1.5rem;display:block;margin-bottom:0.8rem"></i>
-        Failed to load data.json<br>
-        <span style="font-size:0.75rem;color:var(--dim)">// run with Live Server — fetch() needs HTTP</span>
-      </div>`;
+    list.innerHTML = `<div class="no-results"><i class="fas fa-exclamation-triangle" style="color:var(--red);font-size:1.5rem;display:block;margin-bottom:0.8rem"></i>Failed to load questions.<br><span style="font-size:0.75rem;color:var(--dim)">// run with Live Server — fetch() needs HTTP</span></div>`;
   }
 }
 
