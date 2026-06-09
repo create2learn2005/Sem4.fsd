@@ -83,24 +83,24 @@ function buildAnswerPanel(item) {
 
 /* ── Build Options ── */
 function buildOptions(item) {
-  if (!item.options || !item.options.length) return '';
-  let html = `<div class="q-options"><div class="options-grid" id="opts-${item.id}">`;
+  if (!Array.isArray(item.options) || !item.options.length) return '';
+  let html = `<div class="q-options"><div class="options-grid" id="opts-${item.id}" role="group" aria-label="Options for question ${item.id}">`;
   item.options.forEach((opt, i) => {
     html += `
-      <div class="option-item" data-idx="${i}" data-qid="${item.id}">
+      <button type="button" class="option-item" data-idx="${i}" data-qid="${item.id}" aria-pressed="false">
         <span class="opt-letter">${LETTERS[i]}</span>
         <span class="opt-text">${escapeHtml(opt)}</span>
-      </div>`;
+      </button>`;
   });
   html += `</div></div>`;
   return html;
 }
 
 function getCorrectOptionIndex(item) {
-  if (!item.options) return -1;
-  const correctLower = item.answer.toLowerCase().trim();
+  if (!Array.isArray(item.options)) return -1;
+  const correctLower = String(item.answer || '').toLowerCase().trim();
   for (let i = 0; i < item.options.length; i++) {
-    const optLower = item.options[i].toLowerCase().trim();
+    const optLower = String(item.options[i] || '').toLowerCase().trim();
     if (optLower === correctLower)
       return i;
   }
@@ -118,11 +118,17 @@ function attachOptionListeners(item, card) {
       e.stopPropagation();
       if (answered) return;
       answered = true;
-      const chosen = parseInt(opt.dataset.idx);
+      const chosen = Number(opt.dataset.idx);
       const answerPanel = card.querySelector(`#ans-${item.id}`);
       const revealBtn   = card.querySelector('.q-reveal-btn');
+      optsContainer.classList.add('answered');
+      card.classList.add('expanded');
+      const header = card.querySelector('.q-header');
+      if (header) header.setAttribute('aria-expanded', 'true');
 
       optsContainer.querySelectorAll('.option-item').forEach((o, i) => {
+        o.disabled = true;
+        o.setAttribute('aria-pressed', i === chosen ? 'true' : 'false');
         if (i === correctIdx) {
           o.classList.add('correct');
           o.querySelector('.opt-letter').textContent = '✓';
@@ -144,7 +150,7 @@ function attachOptionListeners(item, card) {
 
 /* ── Build Question Card ── */
 function buildCard(item) {
-  const hasMCQ   = item.options && item.options.length > 0;
+  const hasMCQ   = Array.isArray(item.options) && item.options.length > 0;
   const qType    = item.type || (hasMCQ ? 'mcq' : 'theory');
   const isProg   = qType === 'programming';
   const isDesc   = qType === 'descriptive';
@@ -174,7 +180,7 @@ function buildCard(item) {
       <div class="q-text">${escapeHtml(item.question)}</div>
     </div>
     ${buildOptions(item)}
-    ${!hasMCQ ? `<button class="q-reveal-btn visible">
+    ${!hasMCQ ? `<button type="button" class="q-reveal-btn visible">
       <i class="fas fa-eye"></i> Reveal Answer
     </button>` : ''}
     ${buildAnswerPanel(item)}
@@ -182,10 +188,23 @@ function buildCard(item) {
 
   /* header click → expand/collapse */
   const header = card.querySelector('.q-header');
-  header.addEventListener('click', () => {
+  header.setAttribute('role', 'button');
+  header.setAttribute('tabindex', '0');
+  header.setAttribute('aria-expanded', 'false');
+
+  function toggleCard() {
     card.classList.toggle('expanded');
+    header.setAttribute('aria-expanded', card.classList.contains('expanded') ? 'true' : 'false');
     const panel = card.querySelector(`#ans-${item.id}`);
     if (!hasMCQ && panel) panel.classList.toggle('show');
+  }
+
+  header.addEventListener('click', toggleCard);
+  header.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleCard();
+    }
   });
 
   /* reveal button */
@@ -197,6 +216,7 @@ function buildCard(item) {
       if (panel) {
         panel.classList.add('show');
         card.classList.add('expanded');
+        header.setAttribute('aria-expanded', 'true');
         revealBtn.style.display = 'none';
       }
     });
@@ -281,6 +301,22 @@ async function initPage() {
       unit === 'all' || String(q.unit) === String(unit)
     );
 
+    function populateMarksFilter() {
+      if (!marksFilter) return;
+      const marks = [...new Set(questions.map(q => q.marks).filter(mark => mark !== undefined && mark !== null))]
+        .sort((a, b) => Number(a) - Number(b));
+
+      marksFilter.innerHTML = '<option value="all">All Marks</option>';
+      marks.forEach(mark => {
+        const option = document.createElement('option');
+        option.value = String(mark);
+        option.textContent = `${mark} Marks`;
+        marksFilter.appendChild(option);
+      });
+    }
+
+    populateMarksFilter();
+
     /* ── Render ── */
     function render(data) {
       list.innerHTML = '';
@@ -301,37 +337,38 @@ async function initPage() {
 
     /* ── Apply Filters ── */
     function applyFilters() {
-      const s = (searchInput.value || '').toLowerCase().trim();
-      const m = 'all';
-      const p = pyqFilter.value;
-      const t = typeFilter.value;
+      const s = ((searchInput && searchInput.value) || '').toLowerCase().trim();
+      const m = marksFilter ? marksFilter.value : 'all';
+      const p = pyqFilter ? pyqFilter.value : 'all';
+      const t = typeFilter ? typeFilter.value : 'all';
 
       const filtered = questions.filter(q => {
         const matchS = !s ||
-          q.question.toLowerCase().includes(s) ||
-          q.answer.toLowerCase().includes(s) ||
-          (q.explanation||'').toLowerCase().includes(s);
+          String(q.question || '').toLowerCase().includes(s) ||
+          String(q.answer || '').toLowerCase().includes(s) ||
+          String(q.explanation || '').toLowerCase().includes(s);
         const matchM = m === 'all' || String(q.marks) === m;
         const matchP = p === 'all' || (p === 'yes' && q.previousYear) || (p === 'no' && !q.previousYear);
 
         /* type matching — includes descriptive */
-        const qType = q.type || (q.options && q.options.length ? 'mcq' : 'theory');
+        const hasOptions = Array.isArray(q.options) && q.options.length > 0;
+        const qType = q.type || (hasOptions ? 'mcq' : 'theory');
         let matchT = t === 'all';
         if (!matchT) {
-          if (t === 'mcq')         matchT = (q.options && q.options.length > 0);
+          if (t === 'mcq')         matchT = hasOptions;
           else if (t === 'descriptive') matchT = qType === 'descriptive';
           else if (t === 'programming') matchT = qType === 'programming';
-          else if (t === 'theory')  matchT = (qType === 'theory' && !(q.options && q.options.length));
+          else if (t === 'theory')  matchT = (qType === 'theory' && !hasOptions);
         }
         return matchS && matchM && matchP && matchT;
       });
       render(filtered);
     }
 
-    searchInput.addEventListener('input', applyFilters);
-    marksFilter.addEventListener('change', applyFilters);
-    pyqFilter.addEventListener('change', applyFilters);
-    typeFilter.addEventListener('change', applyFilters);
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+    if (marksFilter) marksFilter.addEventListener('change', applyFilters);
+    if (pyqFilter) pyqFilter.addEventListener('change', applyFilters);
+    if (typeFilter) typeFilter.addEventListener('change', applyFilters);
 
     render(questions);
 
@@ -342,17 +379,17 @@ async function initPage() {
     const jumpBtn   = document.getElementById('jumpBtn');
 
     function doJump() {
-      const val = parseInt((jumpInput && jumpInput.value) || '0');
+      const val = parseInt((jumpInput && jumpInput.value) || '0', 10);
       if (!val) return shakeJump();
 
       /* First: is card already rendered? */
       let target = document.getElementById(`qcard-${val}`);
       if (!target) {
         /* Question may have been filtered out — reset filters & re-render */
-        searchInput.value = '';
-        marksFilter.value = 'all';
-        pyqFilter.value   = 'all';
-        typeFilter.value  = 'all';
+        if (searchInput) searchInput.value = '';
+        if (marksFilter) marksFilter.value = 'all';
+        if (pyqFilter) pyqFilter.value = 'all';
+        if (typeFilter) typeFilter.value = 'all';
         render(questions);
         target = document.getElementById(`qcard-${val}`);
       }
@@ -370,7 +407,8 @@ async function initPage() {
       /* Auto-expand */
       setTimeout(() => {
         if (!target.classList.contains('expanded')) {
-          target.querySelector('.q-header').click();
+          const targetHeader = target.querySelector('.q-header');
+          if (targetHeader) targetHeader.click();
         }
       }, 500);
 
@@ -391,7 +429,8 @@ async function initPage() {
       err.id = 'jumpErrMsg';
       err.className = 'jump-error';
       err.textContent = `Q${val} not found in this unit`;
-      document.querySelector('.jump-panel').appendChild(err);
+      const panel = document.querySelector('.jump-panel');
+      if (panel) panel.appendChild(err);
       setTimeout(() => err.remove(), 2500);
     }
 

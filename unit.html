@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Unit Viewer — FSD-2 Portal</title>
   <meta name="description" content="Browse and filter FSD-2 questions by unit, marks, type and previous year."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
         <div class="brand-tag">// study.mode = active</div>
       </div>
     </a>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+    <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
   </header>
@@ -92,7 +92,7 @@
           <div class="jump-label"><i class="fas fa-crosshairs"></i> Jump</div>
           <div class="jump-row">
             <input type="number" class="jump-input" id="jumpInput" placeholder="Q. no" min="1" aria-label="Question number"/>
-            <button class="jump-btn" id="jumpBtn"><i class="fas fa-arrow-right"></i> Go</button>
+            <button type="button" class="jump-btn" id="jumpBtn"><i class="fas fa-arrow-right"></i> Go</button>
           </div>
         </div>
 
@@ -113,31 +113,33 @@
       <div class="search-bar-wrap">
         <div class="search-wrap">
           <i class="fas fa-search search-icon"></i>
-          <input type="text" class="search-input" id="searchInput" placeholder="search questions, keywords, concepts..."/>
+          <input type="search" class="search-input" id="searchInput" placeholder="search questions, keywords, concepts..." aria-label="Search questions"/>
         </div>
         <div class="filters-row">
-          <select class="filter-select" id="marksFilter">
+          <select class="filter-select" id="marksFilter" aria-label="Filter by marks">
             <option value="all">All Marks</option>
           </select>
-          <select class="filter-select" id="pyqFilter">
+          <select class="filter-select" id="pyqFilter" aria-label="Filter by previous year">
             <option value="all">All</option>
             <option value="yes">PYQ ⭐</option>
             <option value="no">Non-PYQ</option>
           </select>
           <!-- FEATURE 2: Filter Descriptive -->
-          <select class="filter-select" id="typeFilter">
+          <select class="filter-select" id="typeFilter" aria-label="Filter by question type">
             <option value="all">All Types</option>
             <option value="mcq">MCQ</option>
+            <option value="theory">Theory</option>
+            <option value="programming">Code</option>
             <option value="descriptive">📝 Descriptive</option>
           </select>
         </div>
       </div>
 
       <!-- QUESTION LIST -->
-      <div id="questionList"></div>
+      <div id="questionList" aria-live="polite"></div>
 
       <!-- BACK TO TOP -->
-      <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
       </button>
 
