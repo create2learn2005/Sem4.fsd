@@ -1,4 +1,5 @@
 # FSD-2 Purple Portal — LJU Exam Prep
+## https://create2learn2005.github.io/Sem4.fsd/
 
 A modern, responsive exam preparation portal for LJ University Full Stack Development 2 (FSD-2) course. Practice **484 questions** across **10 units** with MCQ, theory, descriptive, and programming question types.
 
