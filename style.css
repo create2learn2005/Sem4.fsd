@@ -421,6 +421,7 @@ a { text-decoration: none; color: inherit; }
 .q-reveal-btn:hover { background: var(--glass2); border-color: var(--border2); }
 .q-reveal-btn.visible { display: inline-flex; }
 
+
 .no-results { padding: 4rem 1.5rem; text-align: center; font-family: 'JetBrains Mono', monospace; color: var(--dim); font-size: 0.88rem; line-height: 1.8; }
 
 /* ── BACK TO TOP ── */
@@ -530,4 +531,9 @@ a { text-decoration: none; color: inherit; }
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.copy-btn{
+  margin: 0 1.2rem 0.9rem; padding: 0.48rem 0.95rem; border-radius: var(--radius-sm); background: var(--glass);
+  border: 1px solid var(--border); color: var(--purple-lt); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
 }
